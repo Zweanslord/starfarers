@@ -11,6 +11,8 @@ Technologies used:
 - Spring
 - Hibernate
 - MySql
+- JSP
+- HTML
 
 Tools used:
  - Spring Tool Suite, an Eclipse workspace
