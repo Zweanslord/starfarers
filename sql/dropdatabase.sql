@@ -1,0 +1,2 @@
+-- database
+drop database starfarers;
