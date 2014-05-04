@@ -1,4 +1,4 @@
-package com.starfarers.controller;
+package com.starfarers.controller.admin;
 
 import javax.validation.Valid;
 
@@ -15,8 +15,8 @@ import com.starfarers.service.PlayerService;
 import com.starfarers.view.PlayerList;
 
 @Controller
-@RequestMapping("/players")
-public class PlayerController {
+@RequestMapping("/admin/players")
+public class PlayersAdminController {
 
 	@Autowired
 	private PlayerService playerService;
@@ -24,13 +24,13 @@ public class PlayerController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String showPlayers(ModelMap model) {
 		model.addAttribute("playerList", new PlayerList(playerService.getPlayers()));
-		return "players";
+		return "admin/players";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
 	public String savePlayers(@Valid @ModelAttribute PlayerList playerList, BindingResult result, ModelMap model, RedirectAttributes redirectAttributes) {
 		if (result.hasErrors()) {
-			return "players";
+			return "admin/players";
 		}
 		boolean success = true;
 		try {
@@ -39,18 +39,18 @@ public class PlayerController {
 		} catch (Exception e) {
 			success = false;
 			model.addAttribute("success", success);
-			return "players";
+			return "admin/players";
 		}
 		redirectAttributes.addFlashAttribute("success", true);
 		model.addAttribute("success", success);
 
-		return "redirect:/players";
+		return "redirect:/admin/players";
 	}
 
 	@RequestMapping(params = "add", method = RequestMethod.POST)
 	public String addPlayer(@ModelAttribute PlayerList playerList, ModelMap model) {
 		model.addAttribute("playerList", playerList.addNewPlayer());
-		return "players";
+		return "admin/players";
 	}
 
 }

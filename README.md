@@ -13,6 +13,7 @@ Technologies used:
 - MySql
 - JSP
 - HTML
+- CSS
 
 Tools used (to be installed):
  - Spring Tool Suite, an Eclipse workspace, includes server (Tomcat-based) to run web application

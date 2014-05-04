@@ -21,6 +21,14 @@ public class PlayerServiceImpl implements PlayerService {
 		return playerDao.findAll();
 	}
 
+	public List<Player> getActivePlayers() {
+		return playerDao.getPlayersByActive(true);
+	}
+
+	public List<Player> getInactivePlayers() {
+		return playerDao.getPlayersByActive(false);
+	}
+
 	public void savePlayers(List<Player> players) {
 		playerDao.saveAll(players);
 	}
