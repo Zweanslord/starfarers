@@ -16,12 +16,12 @@ public class Player extends Common {
 	@Column(nullable = false)
 	private boolean active = true;
 
-	public Player() {
-		super();
-	}
-
 	public Player(String name) {
 		this.name = name;
+	}
+
+	Player() {
+		super();
 	}
 
 	public String getName() {

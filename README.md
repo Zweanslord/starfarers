@@ -21,7 +21,7 @@ Tools used (to be installed):
  - XAMPP with its MySQL Database
  - Maven for dependency management
  
- Setup:
+Setup:
  - Checkout project from GitHub
  - Through Apache (XAMPP) set up user/database (password to be used see database.properties)
  - Setup Toad Extension with jdbc lib from maven
