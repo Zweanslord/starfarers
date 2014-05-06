@@ -1,0 +1,9 @@
+svg.galaxy polygon.space { fill: black; }
+svg.galaxy polygon.planetary.system { fill: DarkOrange; }
+svg.galaxy polygon.asteroids { fill: sienna; }
+svg.galaxy polygon.volatile.nebula { fill: darkGreen; }
+svg.galaxy polygon.shrouding.nebula { fill: tan; }
+svg.galaxy polygon.resonating.nebula { fill: skyBlue; }
+svg.galaxy polygon.ionic.nebula { fill: crimson; }
+svg.galaxy polygon.rifts { fill: darkblue; }
+svg.galaxy polygon.gravity.well { fill: dimGray; }

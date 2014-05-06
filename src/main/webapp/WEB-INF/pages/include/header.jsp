@@ -4,6 +4,7 @@
 	<head>
 		<title>${param.title}</title>
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/terrain.css" />
 	</head>
 	<body>
 		<header>

@@ -3,7 +3,7 @@
 	<jsp:param name="title" value="Galaxy" />
 </jsp:include>
 
-<svg id="galaxy" height="1100" width="1500">
+<svg class="galaxy" height="1100" width="1500">
 	<c:forEach items="${galaxy.sectors}" var="sector">
 		<g transform="translate(${500 + 12 + sector.coordinates.x * 37},${500 + 0.3 + sector.coordinates.y * 50 + sector.coordinates.x * 25})">
 			<polygon class="${sector.terrain}" points="0,0 -12,25 0,50 25,50 37,25 25,0" />
