@@ -3,11 +3,11 @@
 	<jsp:param name="title" value="Galaxy" />
 </jsp:include>
 
-<svg class="galaxy" height="1100" width="1500">
+<svg class="galaxy" height="${50 + galaxy.radius * 2 * 50}" width="${49 + galaxy.radius * 2 * (49+25) / 2}">
 	<c:forEach items="${galaxy.sectors}" var="sector">
-		<g transform="translate(${500 + 12 + sector.coordinates.x * 37},${500 + 0.3 + sector.coordinates.y * 50 + sector.coordinates.x * 25})">
-			<polygon class="${sector.terrain}" points="0,0 -12,25 0,50 25,50 37,25 25,0" />
-			<text y="2em" fill="white"><tspan class="q">${sector.coordinates.x}</tspan><tspan>,</tspan><tspan class="r">${sector.coordinates.y}</tspan></text>
+		<g transform="translate(${24.5 + galaxy.radius * (49+25) / 2 + sector.coordinates.x * 37},${25 + galaxy.radius * 50 + 0.3 + sector.coordinates.y * 50 + sector.coordinates.x * 25})">
+			<polygon class="${sector.terrain}" points="-12.5,-25 -24.5,0 -12.5,25 12.5,25 24.5,0 12.5,-25" />
+			<text>${sector.coordinates.x},${sector.coordinates.y}</text>
 		</g>
 	</c:forEach>
 </svg>

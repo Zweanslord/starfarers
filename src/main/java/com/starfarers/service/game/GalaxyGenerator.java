@@ -13,16 +13,8 @@ public class GalaxyGenerator {
 
 	private Integer radius;
 
-	public GalaxyGenerator(Integer size) {
-		radius = size;
-	}
-
-	public Integer getSize() {
-		return radius;
-	}
-
-	public void setSize(Integer size) {
-		radius = size;
+	public GalaxyGenerator(Integer radius) {
+		this.radius = radius;
 	}
 
 	public Galaxy generate() {

@@ -1,3 +1,20 @@
+svg {
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+	-moz-user-select: none;     /* Firefox all */
+	-ms-user-select: none;      /* IE 10+ */
+
+	/* No support for these yet, use at own risk */
+	-o-user-select: none;
+	user-select: none;
+	
+	display: block;
+    margin: 0 auto;
+}
+
+svg > *, svg.galaxy text { pointer-events: none; }
+
+svg.galaxy polygon, svg.galaxy g { pointer-events: visiblepainted; }
+
 svg.galaxy polygon.space { fill: black; }
 svg.galaxy polygon.planetary.system { fill: DarkOrange; }
 svg.galaxy polygon.asteroids { fill: sienna; }
@@ -7,3 +24,11 @@ svg.galaxy polygon.resonating.nebula { fill: skyBlue; }
 svg.galaxy polygon.ionic.nebula { fill: crimson; }
 svg.galaxy polygon.rifts { fill: darkblue; }
 svg.galaxy polygon.gravity.well { fill: dimGray; }
+svg.galaxy polygon:hover { opacity: 0.4; }
+
+svg.galaxy text { 
+	text-anchor: middle; 
+	dominant-baseline: middle;
+	fill: white; 
+	font-size: 0.9em }
+svg.galaxy g:hover text { fill: black; font-weight: bold; }
