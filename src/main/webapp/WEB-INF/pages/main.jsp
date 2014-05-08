@@ -6,6 +6,7 @@
 
 <ul>
 	<li><a href="galaxy">Galaxy</a></li>
+	<li><a href="editor/galaxy">Galaxy Editor</a></li>
 	<li><a href="players">Players</a></li>
 	<li><a href="admin/players">Player Administration</a></li>
 </ul>

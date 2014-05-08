@@ -4,20 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import org.springframework.stereotype.Component;
+
 import com.starfarers.domain.map.Coordinates;
 import com.starfarers.domain.map.Galaxy;
 import com.starfarers.domain.map.Sector;
 import com.starfarers.domain.map.Terrain;
 
+@Component
 public class GalaxyGenerator {
 
-	private Integer radius;
-
-	public GalaxyGenerator(Integer radius) {
-		this.radius = radius;
-	}
-
-	public Galaxy generate() {
+	public Galaxy generate(GalaxyFeatures galaxyFeatures) {
+		Integer radius = galaxyFeatures.getRadius();
 		Galaxy galaxy = new Galaxy(radius);
 		List<Sector> sectors = new ArrayList<>();
 		Coordinates coordinates = new Coordinates(0, 0);
