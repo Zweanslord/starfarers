@@ -1,5 +1,7 @@
 package com.starfarers.controller.editor;
 
+import java.util.Arrays;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.starfarers.domain.map.Terrain;
 import com.starfarers.service.game.GalaxyFeatures;
 import com.starfarers.service.game.GalaxyGenerator;
 
@@ -22,6 +25,7 @@ public class GalaxyEditorController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String viewGalaxy(ModelMap model) {
+		model.put("terrains", Arrays.asList(Terrain.values()));
 		GalaxyFeatures galaxyFeatures = new GalaxyFeatures(10);
 		model.put("galaxyFeatures", galaxyFeatures);
 		model.put("galaxy", galaxyGenerator.generate(galaxyFeatures));
@@ -33,6 +37,7 @@ public class GalaxyEditorController {
 		if (result.hasErrors()) {
 			return "editor/galaxy";
 		}
+		model.put("terrains", Arrays.asList(Terrain.values()));
 		model.put("galaxy", galaxyGenerator.generate(galaxyFeatures));
 		return "editor/galaxy";
 	}

@@ -2,7 +2,7 @@ package com.starfarers.domain.map;
 
 public enum Terrain {
 	SPACE("space"),
-	PLANETARY_SYSTEM("planetary system"),
+	STAR("star"),
 	ASTEROIDS("asteroids"),
 	VOLATILE_NEBULA("volatile nebula"),
 	SHROUDING_NEBULA("shrouding nebula"),
