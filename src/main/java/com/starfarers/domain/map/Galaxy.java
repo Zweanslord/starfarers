@@ -2,10 +2,15 @@ package com.starfarers.domain.map;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.Valid;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 import com.starfarers.domain.common.Common;
 
@@ -13,10 +18,15 @@ import com.starfarers.domain.common.Common;
 @Table
 public class Galaxy extends Common {
 
+	@NotNull
+	@Min(1)
+	@Max(30)
 	@Column
 	private Integer radius;
 
-	@OneToMany(mappedBy = "galaxy")
+	// TODO add validation: unique coordinates, within radius size, expected nr of sectors based on radius
+	@Valid
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "galaxy")
 	private List<Sector> sectors;
 
 	public Galaxy(Integer radius) {
@@ -24,7 +34,7 @@ public class Galaxy extends Common {
 		this.radius = radius;
 	}
 
-	Galaxy() {
+	public Galaxy() {
 		super();
 	}
 

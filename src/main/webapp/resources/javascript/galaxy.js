@@ -35,4 +35,42 @@ $(document).ready(function() {
 		}
 	}
 	
+	function getGalaxy() {
+		var galaxy = { 
+			"id" : $("#galaxy-id").text(),
+			"radius": $("#galaxy-radius").text()
+		};
+		var sectors = [];
+		$("svg.galaxy.editor polygon").each(function() {
+			sectors.push({
+				"coordinates" : {
+					"x": $(this).data('x'),
+					"y" : $(this).data('y')
+				},
+				"terrain" : $(this).data('terrain')
+			});
+		});
+		galaxy['sectors'] = sectors;
+		return galaxy;
+	}
+	
+	$("#saveGalaxy").click(function () {
+		$("#saveGalaxySuccess").hide();
+		$("#saveGalaxyFailure").hide();
+		$.ajax({
+			type: "POST",
+			url: "/starfarers/editor/galaxy/save",
+			contentType: 'application/json',
+			data: JSON.stringify(getGalaxy()),
+			success: function(response) {
+				if (response) {
+					$("#galaxy-id").text(response);
+					$("#saveGalaxySuccess").show();
+				} else {
+					$("#saveGalaxyFailure").show();
+				}
+			}
+		});
+	});
+	
 });

@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 import com.starfarers.domain.common.Common;
 
@@ -13,9 +15,11 @@ import com.starfarers.domain.common.Common;
 @Table
 public class Sector extends Common {
 
+	@Valid
 	@Embedded
 	private Coordinates coordinates;
 
+	@NotNull
 	@Column(nullable = false)
 	private String terrain;
 
