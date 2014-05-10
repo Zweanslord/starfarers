@@ -49,7 +49,7 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 		entityManager.remove(entityManager.merge(entity));
 	}
 
-	public T find(Long id) {
+	public T find(Integer id) {
 		return entityManager.find(entityClass, id);
 	}
 

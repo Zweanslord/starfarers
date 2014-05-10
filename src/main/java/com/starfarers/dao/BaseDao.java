@@ -12,7 +12,7 @@ public interface BaseDao<T> {
 
 	public void remove(T entity);
 
-	public T find(Long id);
+	public T find(Integer id);
 
 	public List<T> findAll();
 

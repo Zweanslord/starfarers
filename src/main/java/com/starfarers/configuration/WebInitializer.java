@@ -18,7 +18,6 @@ public class WebInitializer implements WebApplicationInitializer {
 
 		applicationContext.setConfigLocation("com.starfarers.configuration");
 		applicationContext.register(WebAppConfig.class);
-		applicationContext.setServletContext(servletContext);
 
 		ServletRegistration.Dynamic servlet = servletContext.addServlet("dispatcher", new DispatcherServlet(applicationContext));
 		servlet.addMapping("/");

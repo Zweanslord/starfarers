@@ -32,6 +32,7 @@ $(document).ready(function() {
 	function changeTerrain(element) {
 		if (terrain != "" && editing) {
 			element.attr("class", terrain);
+			element.attr("data-terrain", terrain);
 		}
 	}
 	
@@ -43,6 +44,7 @@ $(document).ready(function() {
 		var sectors = [];
 		$("svg.galaxy.editor polygon").each(function() {
 			sectors.push({
+				"id" : $(this).data('id'),
 				"coordinates" : {
 					"x": $(this).data('x'),
 					"y" : $(this).data('y')

@@ -4,7 +4,14 @@
 	<jsp:param name="title" value="Galaxy Editor" />
 </jsp:include>
 
-<form:form modelAttribute="galaxyFeatures" method="post">
+<ul>
+	<li><a href="${pageContext.request.contextPath}/editor/galaxy">Nieuw</a></li>
+	<c:forEach items="${galaxies}" var="otherGalaxy">
+		<li><a href="${pageContext.request.contextPath}/editor/selectgalaxy?id=${otherGalaxy.id}">${otherGalaxy.id}</a></li>
+	</c:forEach>
+</ul>
+
+<form:form modelAttribute="galaxyFeatures" method="post" action="${pageContext.request.contextPath}/editor/galaxy">
 	<fieldset>
 		<form:label path="radius">Radius:</form:label>
 		<form:input path="radius" />
@@ -32,6 +39,7 @@
 	<c:forEach items="${galaxy.sectors}" var="sector">
 		<g transform="translate(${24.5 + galaxy.radius * (49+25) / 2 + sector.coordinates.x * 37},${25 + galaxy.radius * 50 + 0.3 + sector.coordinates.y * 50 + sector.coordinates.x * 25})">
 			<polygon class="${sector.terrain}" 
+				data-id="${sector.id}"
 				data-x="${sector.coordinates.x}" 
 				data-y="${sector.coordinates.y}" 
 				data-terrain="${sector.terrain}"
