@@ -23,14 +23,17 @@ public class Sector extends Common {
 	@Column(nullable = false)
 	private String terrain;
 
+	private boolean starSystem;
+
 	@ManyToOne
 	@JoinColumn(name = "fk_galaxy", nullable = false)
 	private Galaxy galaxy;
 
-	public Sector(Coordinates coordinates, String terrain, Galaxy galaxy) {
+	public Sector(Coordinates coordinates, String terrain, boolean starSystem, Galaxy galaxy) {
 		this();
 		this.coordinates = coordinates;
 		this.terrain = terrain;
+		this.starSystem = starSystem;
 		this.galaxy = galaxy;
 	}
 
@@ -52,6 +55,14 @@ public class Sector extends Common {
 
 	public void setTerrain(String terrain) {
 		this.terrain = terrain;
+	}
+
+	public boolean isStarSystem() {
+		return starSystem;
+	}
+
+	public void setStarSystem(boolean starSystem) {
+		this.starSystem = starSystem;
 	}
 
 	public Galaxy getGalaxy() {

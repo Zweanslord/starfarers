@@ -19,6 +19,7 @@ create table sector (
 	x int not null,
 	y int not null,
 	terrain varchar(255) not null,
+	starsystem bool not null default false,
 	fk_galaxy int not null,
 	primary key (id),
 	foreign key (fk_galaxy) references galaxy (id) on delete cascade

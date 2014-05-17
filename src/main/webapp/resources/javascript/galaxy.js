@@ -1,19 +1,26 @@
 $(document).ready(function() {
 	var terrain = "";
+	var starSystem = false;
 	var editing = false;
 	
-	$(".galaxy.paint polygon").click(function() {
-		var selectingTerrain = false;
+	$(".galaxy.paint polygon, .galaxy.paint circle").click(function() {
+		var selecting = false;
 		if ($(this).attr("class").contains("selected")) {
 			terrain = "";
+			starSystem = false;
+		} else if ($(this).attr("class").contains("star")) {
+			selecting = true;
+			terrain = "";
+			starSystem = true;
 		} else {
-			selectingTerrain = true;
+			selecting = true;
 			terrain = $(this).attr("class");
+			starSystem = false;
 		}
-		$(".galaxy.paint polygon").each(function() {
+		$(".galaxy.paint polygon, .galaxy.paint circle").each(function() {
 			$(this).attr("class", $(this).attr("class").replace(" selected", ""));
 		});
-		if (selectingTerrain) {
+		if (selecting) {
 			$(this).attr("class", $(this).attr("class") + " selected");
 		}
 	});
@@ -22,18 +29,36 @@ $(document).ready(function() {
 		editing = false;
 	});
 	
-	$(".galaxy.editor polygon").mousedown(function() {
+	$(".galaxy.editor g").mousedown(function() {
 		editing = true;
 		changeTerrain($(this));
 	}).mouseover(function() {
 		changeTerrain($(this));
 	});
 	
-	function changeTerrain(element) {
+	function changeTerrain(group) {
+		var element = $(group).find("polygon");
 		if (terrain != "" && editing) {
 			element.attr("class", terrain);
 			element.attr("data-terrain", terrain);
+		} else if (starSystem && editing) {
+			if (element.attr("data-starSystem") == 'true') {
+				element.attr("data-starSystem", 'false');
+				$(group).find("circle").remove();
+			} else if (element.attr("data-starSystem") == 'false') {
+				element.attr("data-starSystem", 'true');
+				createStar(group);
+			}
 		}
+	}
+	
+	function createStar(group) {
+		var radius = $("#star-radius").text();
+		var star = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+		star.setAttribute("class", "star");
+		star.setAttribute("r", radius);
+		star.setAttribute("cy", radius);
+		group.append(star);
 	}
 	
 	function getGalaxy() {
@@ -49,7 +74,8 @@ $(document).ready(function() {
 					"x": $(this).data('x'),
 					"y" : $(this).data('y')
 				},
-				"terrain" : $(this).data('terrain')
+				"terrain" : $(this).data('terrain'),
+				"starSystem" : $(this).data('starsystem')
 			});
 		});
 		galaxy['sectors'] = sectors;

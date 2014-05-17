@@ -16,7 +16,6 @@ svg > *, svg.galaxy text { pointer-events: none; }
 svg.galaxy polygon, svg.galaxy g { pointer-events: visiblepainted; }
 
 svg.galaxy polygon.space { fill: black; }
-svg.galaxy polygon.star { fill: DarkOrange; }
 svg.galaxy polygon.asteroids { fill: sienna; }
 svg.galaxy polygon.volatile.nebula { fill: darkGreen; }
 svg.galaxy polygon.shrouding.nebula { fill: tan; }
@@ -24,13 +23,17 @@ svg.galaxy polygon.resonating.nebula { fill: skyBlue; }
 svg.galaxy polygon.ionic.nebula { fill: crimson; }
 svg.galaxy polygon.rifts { fill: darkblue; }
 svg.galaxy polygon.gravity.well { fill: dimGray; }
-svg.galaxy polygon:hover { opacity: 0.4; }
+
+svg.galaxy circle { fill: DarkOrange; }
+
 
 svg.galaxy text { 
 	text-anchor: middle; 
 	dominant-baseline: middle;
 	fill: white; 
 	font-size: 0.9em }
+
+svg.galaxy g:hover polygon, svg.galaxy g:hover circle { opacity: 0.4; }
 svg.galaxy g:hover text { fill: black; font-weight: bold; }
 
 /* Editor */
@@ -39,7 +42,7 @@ svg.galaxy.legend text {
 	fill: black;
 }
 
-svg.galaxy.paint polygon.selected {
+svg.galaxy.paint polygon.selected, svg.galaxy.paint circle.selected {
 	stroke: goldenrod;
 	stroke-width: 6;
 }
