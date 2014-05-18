@@ -32,16 +32,18 @@ $(document).ready(function() {
 	$(".galaxy.editor g").mousedown(function() {
 		editing = true;
 		changeTerrain($(this));
-	}).mouseover(function() {
-		changeTerrain($(this));
+	}).mouseenter(function() {
+		if (editing) {
+			changeTerrain($(this));
+		}
 	});
 	
 	function changeTerrain(group) {
 		var element = $(group).find("polygon");
-		if (terrain != "" && editing) {
+		if (terrain != "") {
 			element.attr("class", terrain);
 			element.attr("data-terrain", terrain);
-		} else if (starSystem && editing) {
+		} else if (starSystem) {
 			if (element.attr("data-starSystem") == 'true') {
 				element.attr("data-starSystem", 'false');
 				$(group).find("circle").remove();
