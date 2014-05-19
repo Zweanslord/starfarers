@@ -1,0 +1,14 @@
+svg.starSystem {
+	background-color: black;
+}
+
+svg.starSystem text { fill: white; }
+
+svg circle.terran { fill: green; }
+svg circle.ice { fill: skyBlue; }
+svg circle.magma { fill: red; }
+svg circle.desert { fill: yellow; }
+svg circle.arid { fill: brown; }
+svg circle.rocky { fill: grey; }
+svg circle.jungle { fill: darkGreen; }
+svg circle.crystal { fill: violet; }

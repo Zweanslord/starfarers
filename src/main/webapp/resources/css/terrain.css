@@ -31,14 +31,13 @@ svg.galaxy polygon.ionic.nebula { fill: crimson; }
 svg.galaxy polygon.rifts { fill: darkblue; }
 svg.galaxy polygon.gravity.well { fill: dimGray; }
 
-svg.galaxy circle { fill: DarkOrange; }
-
+svg .star { fill: DarkOrange; }
 
 svg.galaxy text { 
 	text-anchor: middle; 
 	dominant-baseline: middle;
-	fill: white; 
-	font-size: 0.9em }
+	fill: white;
+}
 
 svg.galaxy g:hover polygon, svg.galaxy g:hover circle { opacity: 0.4; }
 svg.galaxy g:hover text { fill: black; font-weight: bold; }

@@ -58,7 +58,7 @@
 				data-starSystem="${sector.starSystem}"
 				points="-${width / 2},-${height / 2} -${totalWidth / 2},0 -${width / 2},${height / 2} ${width / 2},${height / 2} ${totalWidth / 2},0 ${width / 2},-${height / 2}" />
 			<c:if test="${sector.starSystem}">
-				<circle r="${starRadius}" cy="${starRadius}"/>
+				<circle class="star" r="${starRadius}" cy="${starRadius}"/>
 			</c:if>
 			<text y="-${starRadius}">${sector.coordinates.x},${sector.coordinates.y}</text>
 		</g>

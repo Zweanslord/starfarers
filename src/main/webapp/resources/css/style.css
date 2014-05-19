@@ -4,6 +4,7 @@ body {
 	font-size: 100%;
 	font-family: 'Lucida Console';
 	margin: 0;
+	min-width: 320px;
 }
 
 header {
