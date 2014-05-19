@@ -4,10 +4,14 @@
 	<jsp:param name="title" value="Galaxy Editor" />
 </jsp:include>
 
-<ul>
-	<li><a href="${pageContext.request.contextPath}/editor/galaxy">Nieuw</a></li>
+<ul class="tabs">
+	<li <c:if test="${galaxy.id == null}">class="selected"</c:if>>
+		<a href="${pageContext.request.contextPath}/editor/galaxy">Nieuw</a>
+	</li>
 	<c:forEach items="${galaxies}" var="otherGalaxy">
-		<li><a href="${pageContext.request.contextPath}/editor/selectgalaxy?id=${otherGalaxy.id}">${otherGalaxy.id}</a></li>
+		<li <c:if test="${galaxy.id == otherGalaxy.id}">class="selected"</c:if>>
+			<a href="${pageContext.request.contextPath}/editor/selectgalaxy?id=${otherGalaxy.id}">${otherGalaxy.id}</a>
+		</li>
 	</c:forEach>
 </ul>
 
@@ -21,7 +25,7 @@
 </form:form>
 
 <button id="saveGalaxy">Sla op</button>
-<div id="galaxy-id">${galaxy.id}</div>
+<div id="galaxy-id" style="display: none;">${galaxy.id}</div>
 <div id="galaxy-radius" style="display: none;">${galaxy.radius}</div>
 
 <div id="saveGalaxySuccess" style="display: none;">Succesvol opgeslagen.</div>

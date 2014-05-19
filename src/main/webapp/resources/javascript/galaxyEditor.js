@@ -77,6 +77,9 @@ $(document).ready(function() {
 			data: JSON.stringify(getGalaxy()),
 			success: function(response) {
 				if (response) {
+					if ($("#galaxy-id").text() == "") {
+						addGalaxyToTabs(response);
+					}
 					$("#galaxy-id").text(response);
 					$("#saveGalaxySuccess").show();
 				} else {
@@ -105,6 +108,10 @@ $(document).ready(function() {
 		});
 		galaxy['sectors'] = sectors;
 		return galaxy;
+	}
+	
+	function addGalaxyToTabs(id) {
+		// TODO
 	}
 	
 });

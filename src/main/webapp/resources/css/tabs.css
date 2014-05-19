@@ -1,0 +1,37 @@
+ul.tabs {
+	list-style: none;
+	padding: 0;
+	margin: 1em 0 0.5em;
+}
+
+ul.tabs li {
+	display: inline-block;
+	background-color: black;
+	color: white;
+	padding: 0.5em 0;
+	margin: 0 0.5em 0.5em 0;
+	min-width: 2em;
+	text-align: center;
+}
+
+ul.tabs a, ul.tabs a:visited {
+	color: white;
+	text-decoration: none;
+	padding: 0.5em;
+}
+
+ul.tabs li.selected {
+	background-color: lightgrey;
+}
+
+ul.tabs li.selected, ul.tabs li.selected a, ul.tabs li.selected a {
+	color: black;
+}
+
+ul.tabs li:hover {
+	background-color: grey;
+}
+
+ul.tabs li.selected:hover a, ul.tabs li.selected:hover a {
+	color: white;
+}
