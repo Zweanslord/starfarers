@@ -14,24 +14,24 @@ ul.tabs li {
 	text-align: center;
 }
 
+ul.tabs li:hover { background-color: grey; }
+
 ul.tabs a, ul.tabs a:visited {
 	color: white;
 	text-decoration: none;
 	padding: 0.5em;
 }
 
-ul.tabs li.selected {
+ul.tabs li.selected { 
 	background-color: lightgrey;
+	cursor: default;
 }
 
-ul.tabs li.selected, ul.tabs li.selected a, ul.tabs li.selected a {
+ul.tabs li.selected, ul.tabs li.selected a, ul.tabs li.selected a:visited {
 	color: black;
-}
-
-ul.tabs li:hover {
-	background-color: grey;
 }
 
 ul.tabs li.selected:hover a, ul.tabs li.selected:hover a {
 	color: white;
+	cursor: pointer;
 }

@@ -82,6 +82,7 @@ $(document).ready(function() {
 					}
 					$("#galaxy-id").text(response);
 					$("#saveGalaxySuccess").show();
+					window.history.pushState("galaxy","galaxy", "selectgalaxy?id=" + response);
 				} else {
 					$("#saveGalaxyFailure").show();
 				}
@@ -111,7 +112,11 @@ $(document).ready(function() {
 	}
 	
 	function addGalaxyToTabs(id) {
-		// TODO
+		$(".tabs li").removeClass("selected");
+		$("<li/>", {
+			"class": "selected",
+			text: id
+		}).appendTo(".tabs");
 	}
 	
 });

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.starfarers.dao.GalaxyDao;
 import com.starfarers.domain.map.Galaxy;
 import com.starfarers.domain.map.Terrain;
+import com.starfarers.service.GalaxyService;
 import com.starfarers.service.game.GalaxyFeatures;
 import com.starfarers.service.game.GalaxyGenerator;
 
@@ -27,6 +28,9 @@ public class GalaxyEditorController {
 
 	@Autowired
 	private GalaxyDao galaxyDao;
+
+	@Autowired
+	private GalaxyService galaxyService;
 
 	@RequestMapping(value = "/editor/galaxy", method = RequestMethod.GET)
 	public String newGalaxy(ModelMap model) {
@@ -54,6 +58,12 @@ public class GalaxyEditorController {
 		setEnvironment(model);
 		model.put("galaxy", galaxyGenerator.generate(galaxyFeatures));
 		return "editor/galaxy";
+	}
+
+	@RequestMapping(value = "/editor/galaxy/delete", method = RequestMethod.POST)
+	public String deleteGalaxy(@RequestParam Integer id, ModelMap model) {
+		galaxyService.removeGalaxy(id);
+		return "redirect:/editor/galaxy";
 	}
 
 	private void setEnvironment(ModelMap model) {

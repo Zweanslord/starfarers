@@ -25,6 +25,13 @@
 </form:form>
 
 <button id="saveGalaxy">Sla op</button>
+
+<c:if test="${galaxy.id != null}">
+	<form:form method="post" action="${pageContext.request.contextPath}/editor/galaxy/delete?id=${galaxy.id}">
+		<button type="submit">Verwijder</button>
+	</form:form>
+</c:if>
+
 <div id="galaxy-id" style="display: none;">${galaxy.id}</div>
 <div id="galaxy-radius" style="display: none;">${galaxy.radius}</div>
 
