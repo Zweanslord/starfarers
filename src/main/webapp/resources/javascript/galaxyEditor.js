@@ -4,26 +4,30 @@ $(document).ready(function() {
 	var editing = false;
 	
 	$(".galaxy.paint polygon, .galaxy.paint circle").click(function() {
+		selectPaint($(this));
+	});
+	
+	function selectPaint(element) {
 		var selecting = false;
-		if ($(this).attr("class").contains("selected")) {
+		if ($(element).attr("class").contains("selected")) {
 			terrain = "";
 			starSystem = false;
-		} else if ($(this).attr("class").contains("star")) {
+		} else if ($(element).attr("class").contains("star")) {
 			selecting = true;
 			terrain = "";
 			starSystem = true;
 		} else {
 			selecting = true;
-			terrain = $(this).attr("class");
+			terrain = $(element).attr("class");
 			starSystem = false;
 		}
 		$(".galaxy.paint polygon, .galaxy.paint circle").each(function() {
-			$(this).attr("class", $(this).attr("class").replace(" selected", ""));
+			$(element).attr("class", $(element).attr("class").replace(" selected", ""));
 		});
 		if (selecting) {
-			$(this).attr("class", $(this).attr("class") + " selected");
+			$(element).attr("class", $(element).attr("class") + " selected");
 		}
-	});
+	}
 	
 	$("body").mouseup(function() {
 		editing = false;
@@ -63,6 +67,25 @@ $(document).ready(function() {
 		group.append(star);
 	}
 	
+	$("#saveGalaxy").click(function () {
+		$("#saveGalaxySuccess").hide();
+		$("#saveGalaxyFailure").hide();
+		$.ajax({
+			type: "POST",
+			url: "/starfarers/editor/galaxy/save",
+			contentType: 'application/json',
+			data: JSON.stringify(getGalaxy()),
+			success: function(response) {
+				if (response) {
+					$("#galaxy-id").text(response);
+					$("#saveGalaxySuccess").show();
+				} else {
+					$("#saveGalaxyFailure").show();
+				}
+			}
+		});
+	});
+	
 	function getGalaxy() {
 		var galaxy = { 
 			"id" : $("#galaxy-id").text(),
@@ -83,24 +106,5 @@ $(document).ready(function() {
 		galaxy['sectors'] = sectors;
 		return galaxy;
 	}
-	
-	$("#saveGalaxy").click(function () {
-		$("#saveGalaxySuccess").hide();
-		$("#saveGalaxyFailure").hide();
-		$.ajax({
-			type: "POST",
-			url: "/starfarers/editor/galaxy/save",
-			contentType: 'application/json',
-			data: JSON.stringify(getGalaxy()),
-			success: function(response) {
-				if (response) {
-					$("#galaxy-id").text(response);
-					$("#saveGalaxySuccess").show();
-				} else {
-					$("#saveGalaxyFailure").show();
-				}
-			}
-		});
-	});
 	
 });

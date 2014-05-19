@@ -25,9 +25,14 @@
 <svg class="galaxy" height="${height + galaxy.radius * 2 * height}" width="${height + galaxy.radius * 2 * (totalWidth + width) / 2}">
 	<c:forEach items="${galaxy.sectors}" var="sector">
 		<g transform="translate(${totalWidth / 2 + galaxy.radius * (totalWidth + width) / 2 + sector.coordinates.x * (width + sideWidth)},${height / 2 + galaxy.radius * height + 0.3 + sector.coordinates.y * height + sector.coordinates.x * height / 2})">
-			<polygon class="${sector.terrain}" points="-${width / 2},-${height / 2} -${totalWidth / 2},0 -${width / 2},${height / 2} ${width / 2},${height / 2} ${totalWidth / 2},0 ${width / 2},-${height / 2}" />
+			<polygon class="${sector.terrain}" 
+				points="-${width / 2},-${height / 2} -${totalWidth / 2},0 -${width / 2},${height / 2} ${width / 2},${height / 2} ${totalWidth / 2},0 ${width / 2},-${height / 2}" />
 			<c:if test="${sector.starSystem}">
-				<circle r="${starRadius}" cy="${starRadius}"/>
+				<circle class="star" 
+					r="${starRadius}" 
+					cy="${starRadius}" 
+					data-x="${sector.coordinates.x}" 
+					data-y="${sector.coordinates.y}" />
 			</c:if>
 			<text y="-${starRadius}">${sector.coordinates.x},${sector.coordinates.y}</text>
 		</g>
