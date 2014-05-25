@@ -7,7 +7,7 @@
 <c:set var="planetDiameter" value="${planetRadius * 2}" />
 <c:set var="starRadius" value="70" />
 
-<svg class="starSystem" height="${starRadius + (planetDiameter + 20) * (star.planets.size() + 1)}">
+<svg class="starSystem" viewBox="-${starRadius} 0 ${starRadius * 3} ${starRadius + (planetDiameter + 20) * (star.planets.size() + 1)}">
 	<circle class="star" r="${starRadius}"/>
 	<c:forEach items="${star.planets}" var="planet" varStatus="position">
 		<g transform="translate(0, ${starRadius + (planetDiameter + 20) * (position.index + 1)})">

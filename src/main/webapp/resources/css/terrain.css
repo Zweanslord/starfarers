@@ -33,6 +33,7 @@ svg.galaxy polygon.gravity.well { fill: dimGray; }
 
 svg .star { fill: DarkOrange; }
 
+
 svg.galaxy text { 
 	text-anchor: middle; 
 	dominant-baseline: middle;

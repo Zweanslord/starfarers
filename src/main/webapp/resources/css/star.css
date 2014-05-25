@@ -1,5 +1,6 @@
 svg.starSystem {
 	background-color: black;
+	max-width: 30em;
 }
 
 svg.starSystem text { fill: white; }

@@ -9,7 +9,6 @@
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/terrain.css" />
 		<script src="${pageContext.request.contextPath}/resources/javascript/jquery/jquery-2.1.1.min.js"></script>
 		<script src="${pageContext.request.contextPath}/resources/javascript/galaxyEditor.js"></script>
-		<script src="${pageContext.request.contextPath}/resources/javascript/starSelection.js"></script>
 	</head>
 	<body>
 		<header>

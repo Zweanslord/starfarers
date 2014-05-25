@@ -15,14 +15,16 @@
 	</c:forEach>
 </ul>
 
-<form:form modelAttribute="galaxyFeatures" method="post" action="${pageContext.request.contextPath}/editor/galaxy">
-	<fieldset>
-		<form:label path="radius">Radius:</form:label>
-		<form:input path="radius" />
-		<form:errors path="radius" cssclass="error" />
-	</fieldset>
-	<button type="submit" name="generate">Genereer</button>
-</form:form>
+<c:if test="${galaxy.id == null}">
+	<form:form id="galaxyFeatures" modelAttribute="galaxyFeatures" method="post" action="${pageContext.request.contextPath}/editor/galaxy">
+		<fieldset>
+			<form:label path="radius">Radius:</form:label>
+			<form:input path="radius" />
+			<form:errors path="radius" cssclass="error" />
+		</fieldset>
+		<button type="submit" name="generate">Genereer</button>
+	</form:form>
+</c:if>
 
 <button id="saveGalaxy">Sla op</button>
 
@@ -58,7 +60,8 @@
 	</c:forEach>
 </svg>
 
-<svg class="galaxy editor" height="${height + galaxy.radius * 2 * height}" width="${height + galaxy.radius * 2 * (totalWidth + width) / 2}">
+<svg class="galaxy editor"
+	viewBox="0 0 ${height + galaxy.radius * 2 * (totalWidth + width) / 2} ${height + galaxy.radius * 2 * height}">
 	<c:forEach items="${galaxy.sectors}" var="sector">
 		<g transform="translate(${totalWidth / 2 + galaxy.radius * (totalWidth + width) / 2 + sector.coordinates.x * (width + sideWidth)},${height / 2 + galaxy.radius * height + 0.3 + sector.coordinates.y * height + sector.coordinates.x * height / 2})">
 			<polygon class="${sector.terrain}" 

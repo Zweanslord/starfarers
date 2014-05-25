@@ -22,17 +22,20 @@
 	</c:forEach>
 </svg>
 
-<svg class="galaxy" height="${height + galaxy.radius * 2 * height}" width="${height + galaxy.radius * 2 * (totalWidth + width) / 2}">
+<svg class="galaxy"
+	viewBox="0 0 ${height + galaxy.radius * 2 * (totalWidth + width) / 2} ${height + galaxy.radius * 2 * height}"
+	xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
 	<c:forEach items="${galaxy.sectors}" var="sector">
 		<g transform="translate(${totalWidth / 2 + galaxy.radius * (totalWidth + width) / 2 + sector.coordinates.x * (width + sideWidth)},${height / 2 + galaxy.radius * height + 0.3 + sector.coordinates.y * height + sector.coordinates.x * height / 2})">
 			<polygon class="${sector.terrain}" 
 				points="-${width / 2},-${height / 2} -${totalWidth / 2},0 -${width / 2},${height / 2} ${width / 2},${height / 2} ${totalWidth / 2},0 ${width / 2},-${height / 2}" />
 			<c:if test="${sector.starSystem}">
-				<circle class="star" 
-					r="${starRadius}" 
-					cy="${starRadius}" 
-					data-x="${sector.coordinates.x}" 
-					data-y="${sector.coordinates.y}" />
+				<a xlink:href="star?x=${sector.coordinates.x}&y=${sector.coordinates.y}">
+					<circle class="star" 
+						r="${starRadius}" 
+						cy="${starRadius}" />
+				</a>
 			</c:if>
 			<text y="-${starRadius}">${sector.coordinates.x},${sector.coordinates.y}</text>
 		</g>
