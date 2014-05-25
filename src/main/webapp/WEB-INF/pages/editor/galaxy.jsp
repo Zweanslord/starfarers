@@ -47,18 +47,21 @@
 <c:set var="starRadius" value="${height / 5}" />
 <div id="star-radius" style="display: none;">${starRadius}</div>
 
-<svg class="galaxy legend paint" width="${5 + height * 1/5 + totalWidth * 2.5 * terrains.size()}">
-	<g transform="translate(${5 + height / 2}, ${5 + height / 2})">
-		<circle class="star" r="${starRadius}" />
-		<text y="${height / 2 + 20}">star</text>
-	</g>
-	<c:forEach items="${terrains}" var="terrain" varStatus="position">
-		<g transform="translate(${5 + height * 1.5 + totalWidth / 2 + position.index * totalWidth * 2.5},${5 + height / 2})">
-			<polygon class="${terrain.value}" points="-${width / 2},-${height / 2} -${totalWidth / 2},0 -${width / 2},${height / 2} ${width / 2},${height / 2} ${totalWidth / 2},0 ${width / 2},-${height / 2}" />
-			<text y="${height / 2 + 20}">${terrain.value}</text>
+<div class="paintBar">
+	<svg class="galaxy legend paint" viewBox="0 0 ${5 + height * 1/5 + totalWidth * 2.5 * terrains.size()} ${height + height / 2 + 10}">
+		<g transform="translate(${5 + height / 2}, ${5 + height / 2})">
+			<circle class="star" r="${starRadius}" />
+			<text y="${height / 2 + 20}">star</text>
 		</g>
-	</c:forEach>
-</svg>
+		<c:forEach items="${terrains}" var="terrain" varStatus="position">
+			<g transform="translate(${5 + height * 1.5 + totalWidth / 2 + position.index * totalWidth * 2.5},${5 + height / 2})">
+				<polygon class="${terrain.value}" points="-${width / 2},-${height / 2} -${totalWidth / 2},0 -${width / 2},${height / 2} ${width / 2},${height / 2} ${totalWidth / 2},0 ${width / 2},-${height / 2}" />
+				<text y="${height / 2 + 20}">${terrain.value}</text>
+			</g>
+		</c:forEach>
+	</svg>
+</div>
+<button class="paintBarOpener"></button>
 
 <svg class="galaxy editor"
 	viewBox="0 0 ${height + galaxy.radius * 2 * (totalWidth + width) / 2} ${height + galaxy.radius * 2 * height}">

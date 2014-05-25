@@ -46,7 +46,10 @@ svg.galaxy g:hover text { font-weight: bold; }
 
 /* Editor */
 
-svg.galaxy.legend { background-color: white; }
+svg.galaxy.legend { 
+	background-color: white;
+	min-height: 4em;
+}
 
 svg.galaxy.legend text {
 	fill: black;
@@ -55,4 +58,55 @@ svg.galaxy.legend text {
 svg.galaxy.paint polygon.selected, svg.galaxy.paint circle.selected {
 	stroke: goldenrod;
 	stroke-width: 6;
+}
+
+.paintBar {
+	position: fixed;
+	left: 0;
+	bottom: 2em;
+	overflow: auto;
+	width: 100%;
+	transition: 2s;
+}
+
+.paintBarOpener {
+	background-color: transparent;
+	position: fixed;
+	width: 3em;
+	height: 3em;
+	border: 0;
+	left: 0;
+	bottom: 2em;
+	padding: 0;
+	cursor: pointer;
+	display: block;
+	transition: 2s;
+}
+
+.paintBarOpener:after {
+	content: "";
+	display: block;
+	width: 0; 
+	height: 0;
+	transition: 2s;
+	
+	border-top: 3em solid transparent;
+	border-bottom: 0em solid transparent;
+	border-left: 3em solid lightgray;
+}
+
+.paintBarOpener.closed {
+	height: 4em;
+	width: 2em;
+	bottom: 0em;
+}
+
+.paintBarOpener.closed:after {
+	border-top: 2em solid transparent;
+	border-bottom: 2em solid transparent;
+	border-left: 2em solid lightgray;
+}
+
+.paintBar.closed {
+	left: -100%;
 }

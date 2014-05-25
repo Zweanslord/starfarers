@@ -22,7 +22,7 @@ $(document).ready(function() {
 			starSystem = false;
 		}
 		$(".galaxy.paint polygon, .galaxy.paint circle").each(function() {
-			$(element).attr("class", $(element).attr("class").replace(" selected", ""));
+			$(this).attr("class", $(this).attr("class").replace(" selected", ""));
 		});
 		if (selecting) {
 			$(element).attr("class", $(element).attr("class") + " selected");
@@ -119,5 +119,10 @@ $(document).ready(function() {
 			text: id
 		}).appendTo(".tabs");
 	}
+	
+	$(".paintBarOpener").click(function() {
+		$(this).toggleClass("closed");
+		$(".paintBar").toggleClass("closed");
+	});
 	
 });

@@ -3,6 +3,7 @@
 <html>
 	<head>
 		<title>${param.title}</title>
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css" />
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/tabs.css" />
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/star.css" />
