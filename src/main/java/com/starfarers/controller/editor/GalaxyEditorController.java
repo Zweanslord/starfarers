@@ -9,9 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.starfarers.dao.GalaxyDao;
 import com.starfarers.domain.map.Galaxy;
@@ -41,8 +41,8 @@ public class GalaxyEditorController {
 		return "editor/galaxy";
 	}
 
-	@RequestMapping(value = "/editor/selectgalaxy", method = RequestMethod.GET)
-	public String viewGalaxy(@RequestParam Integer id, ModelMap model) {
+	@RequestMapping(value = "/editor/galaxy/{id}", method = RequestMethod.GET)
+	public String viewGalaxy(@PathVariable Integer id, ModelMap model) {
 		Galaxy galaxy = galaxyDao.find(id);
 		setEnvironment(model);
 		model.put("galaxyFeatures", new GalaxyFeatures(galaxy.getRadius()));
@@ -60,8 +60,8 @@ public class GalaxyEditorController {
 		return "editor/galaxy";
 	}
 
-	@RequestMapping(value = "/editor/galaxy/delete", method = RequestMethod.POST)
-	public String deleteGalaxy(@RequestParam Integer id, ModelMap model) {
+	@RequestMapping(value = "/editor/galaxy/delete/{id}", method = RequestMethod.POST)
+	public String deleteGalaxy(@PathVariable Integer id, ModelMap model) {
 		galaxyService.removeGalaxy(id);
 		return "redirect:/editor/galaxy";
 	}

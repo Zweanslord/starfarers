@@ -10,7 +10,7 @@
 	</li>
 	<c:forEach items="${galaxies}" var="otherGalaxy">
 		<li <c:if test="${galaxy.id == otherGalaxy.id}">class="selected"</c:if>>
-			<a href="${pageContext.request.contextPath}/editor/selectgalaxy?id=${otherGalaxy.id}">${otherGalaxy.id}</a>
+			<a href="${pageContext.request.contextPath}/editor/galaxy/${otherGalaxy.id}">${otherGalaxy.id}</a>
 		</li>
 	</c:forEach>
 </ul>
@@ -29,7 +29,7 @@
 <button id="saveGalaxy">Sla op</button>
 
 <c:if test="${galaxy.id != null}">
-	<form:form method="post" action="${pageContext.request.contextPath}/editor/galaxy/delete?id=${galaxy.id}">
+	<form:form method="post" action="${pageContext.request.contextPath}/editor/galaxy/delete/${galaxy.id}" class="right">
 		<button type="submit">Verwijder</button>
 	</form:form>
 </c:if>

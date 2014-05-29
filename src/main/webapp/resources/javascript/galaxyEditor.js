@@ -83,7 +83,7 @@ $(document).ready(function() {
 					$("#galaxy-id").text(response);
 					$("#saveGalaxySuccess").show();
 					$("#galaxyFeatures").hide();
-					window.history.pushState("galaxy","galaxy", "selectgalaxy?id=" + response);
+					window.history.pushState("galaxy","galaxy", "galaxy/" + response);
 				} else {
 					$("#saveGalaxyFailure").show();
 				}
