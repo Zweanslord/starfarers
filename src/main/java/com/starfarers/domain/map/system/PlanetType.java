@@ -8,6 +8,7 @@ public enum PlanetType {
 	ARID("arid"),
 	ROCKY("rocky"),
 	JUNGLE("jungle"),
+	OCEANIC("oceanic"),
 	CRYSTAL("crystal");
 
 	private String value;

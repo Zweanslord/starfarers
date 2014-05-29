@@ -3,13 +3,22 @@ svg.starSystem {
 	max-width: 30em;
 }
 
-svg.starSystem text { fill: white; }
+svg.starSystem text { 
+	dominant-baseline: middle;
+	fill: white;
+	text-transform: capitalize;
+}
 
-svg circle.terran { fill: green; }
+svg circle.terran { fill: forestGreen; }
 svg circle.ice { fill: skyBlue; }
 svg circle.magma { fill: red; }
 svg circle.desert { fill: yellow; }
 svg circle.arid { fill: brown; }
 svg circle.rocky { fill: grey; }
 svg circle.jungle { fill: darkGreen; }
+svg circle.oceanic { fill: blue; }
 svg circle.crystal { fill: violet; }
+
+svg .ore polygon { fill: lightgray; }
+svg .gas circle { fill: mediumPurple; }
+svg .fertility rect {fill: lightGreen; }

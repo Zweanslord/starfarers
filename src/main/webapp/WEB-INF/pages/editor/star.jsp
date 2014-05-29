@@ -38,4 +38,29 @@
 	</c:forEach>
 </svg>
 
+<form:form modelAttribute="star" method="post">
+	<form:errors path="planets" cssclass="error" />
+	<c:forEach items="${star.planets}" varStatus="status">
+		<fieldset>
+			<%-- <form:hidden path="planets[${status.index}].id" /> --%>
+			<form:label path="planets[${status.index}].type">Type:</form:label>
+			<form:select path="planets[${status.index}].type" items="${planetTypes}" itemValue="value" itemLabel="value" />
+			<form:errors path="planets[${status.index}].type" cssclass="error" />
+			
+			<form:label path="planets[${status.index}].ore">Ore:</form:label>
+			<form:input type="number" path="planets[${status.index}].ore" />
+			<form:errors path="planets[${status.index}].ore" cssclass="error" />
+			
+			<form:label path="planets[${status.index}].gas">Gas:</form:label>
+			<form:input type="number" path="planets[${status.index}].gas" />
+			<form:errors path="planets[${status.index}].gas" cssclass="error" />
+			
+			<form:label path="planets[${status.index}].fertility">Fertility:</form:label>
+			<form:input type="number" path="planets[${status.index}].fertility" />
+			<form:errors path="planets[${status.index}].fertility" cssclass="error" />
+		</fieldset>
+	</c:forEach>
+	<button type="submit">Opslaan</button>
+</form:form>
+
 <jsp:directive.include file="/WEB-INF/pages/include/footer.jsp" />
