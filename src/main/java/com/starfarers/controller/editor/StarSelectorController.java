@@ -1,4 +1,4 @@
-package com.starfarers.controller;
+package com.starfarers.controller.editor;
 
 import java.util.Arrays;
 
@@ -13,23 +13,28 @@ import com.starfarers.service.GalaxyService;
 
 @Controller
 @RequestMapping
-public class GalaxyController {
+public class StarSelectorController {
 
 	@Autowired
 	private transient GalaxyService galaxyService;
 
-	@RequestMapping("/galaxy")
-	public String viewGalaxy(ModelMap model) {
-		model.put("terrains", Arrays.asList(Terrain.values()));
+	@RequestMapping(value = "/editor/starSelector")
+	public String newGalaxy(ModelMap model) {
+		setEnvironment(model);
 		model.put("galaxy", galaxyService.findOne());
-		return "galaxy";
+		return "editor/starSelector";
 	}
 
-	@RequestMapping("/galaxy/{galaxy}")
-	public String findGalaxy(@PathVariable Integer galaxy, ModelMap model) {
+	@RequestMapping(value = "/editor/starSelector/{galaxyId}")
+	public String viewGalaxy(@PathVariable Integer galaxyId, ModelMap model) {
+		setEnvironment(model);
+		model.put("galaxy", galaxyService.find(galaxyId));
+		return "editor/starSelector";
+	}
+
+	private void setEnvironment(ModelMap model) {
+		model.put("galaxies", galaxyService.findAll());
 		model.put("terrains", Arrays.asList(Terrain.values()));
-		model.put("galaxy", galaxyService.find(galaxy));
-		return "galaxy";
 	}
 
 }

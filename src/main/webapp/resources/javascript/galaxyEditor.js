@@ -78,12 +78,9 @@ $(document).ready(function() {
 			success: function(response) {
 				if (response) {
 					if ($("#galaxy-id").text() == "") {
-						addGalaxyToTabs(response);
+						window.location.href = window.location.href + "/" + response;
 					}
-					$("#galaxy-id").text(response);
 					$("#saveGalaxySuccess").show();
-					$("#galaxyFeatures").hide();
-					window.history.pushState("galaxy","galaxy", "galaxy/" + response);
 				} else {
 					$("#saveGalaxyFailure").show();
 				}
@@ -110,14 +107,6 @@ $(document).ready(function() {
 		});
 		galaxy['sectors'] = sectors;
 		return galaxy;
-	}
-	
-	function addGalaxyToTabs(id) {
-		$(".tabs li").removeClass("selected");
-		$("<li/>", {
-			"class": "selected",
-			text: id
-		}).appendTo(".tabs");
 	}
 	
 	$(".paintBarOpener").click(function() {

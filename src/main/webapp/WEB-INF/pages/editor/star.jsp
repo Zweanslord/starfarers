@@ -39,10 +39,14 @@
 </svg>
 
 <form:form modelAttribute="star" method="post">
-	<form:errors path="planets" cssclass="error" />
-	<c:forEach items="${star.planets}" varStatus="status">
+	<form:hidden path="id" />
+
+	<c:forEach items="${star.planets}" var="planet" varStatus="status">
 		<fieldset>
-			<%-- <form:hidden path="planets[${status.index}].id" /> --%>
+			<form:hidden path="planets[${status.index}].id" />
+			<form:hidden path="planets[${status.index}].position" />
+			${planet.position}.
+			
 			<form:label path="planets[${status.index}].type">Type:</form:label>
 			<form:select path="planets[${status.index}].type" items="${planetTypes}" itemValue="value" itemLabel="value" />
 			<form:errors path="planets[${status.index}].type" cssclass="error" />
@@ -60,6 +64,7 @@
 			<form:errors path="planets[${status.index}].fertility" cssclass="error" />
 		</fieldset>
 	</c:forEach>
+	<button type="submit" name="add">Voeg nieuwe planeet toe</button>
 	<button type="submit">Opslaan</button>
 </form:form>
 

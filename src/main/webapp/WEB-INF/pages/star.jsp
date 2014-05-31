@@ -13,8 +13,29 @@
 <c:set var="resourceOffset" value="${resourceSize}" />
 <c:set var="resourceTextOffset" value="12" />
 
-<svg class="starSystem" viewBox="-${starRadius} 0 ${starRadius * 4} ${starRadius + (planetDiameter + planetDistance) * (star.planets.size() + 1)}">
-	<circle class="star" r="${starRadius}"/>
+<c:set var="height" value="60" />
+<c:set var="width" value="${height / 2}" />
+<c:set var="sideWidth" value="${width / 2}" />
+<c:set var="totalWidth" value="${width + 2 * sideWidth}" />
+
+<c:if test="${empty star}">
+	No star found.
+</c:if>
+
+<svg class="starSystem"
+	 viewBox="-${starRadius} 0 ${starRadius * 4} ${starRadius + (planetDiameter + planetDistance) * (star.planets.size() + 1)}"
+	 xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+	<c:if test="${not empty star}">
+		<circle class="star" r="${starRadius}"/>
+	</c:if>
+	<g class="sector" transform="translate(${starRadius * 2}, ${height})">
+		<a xlink:href="${pageContext.request.contextPath}/galaxy/${star.sector.galaxy.id}">
+			<polygon class="${star.sector.terrain}" 
+					 points="-${width / 2},-${height / 2} -${totalWidth / 2},0 -${width / 2},${height / 2} ${width / 2},${height / 2} ${totalWidth / 2},0 ${width / 2},-${height / 2}" />
+			<text>${star.sector.coordinates.x}, ${star.sector.coordinates.y}</text>
+		</a>
+	</g>
 	<c:forEach items="${star.planets}" var="planet" varStatus="position">
 		<g transform="translate(0, ${starRadius + (planetDiameter + planetDistance) * (position.index + 1)})">
 			<circle class="${planet.type}" r="${planetRadius}" />

@@ -24,3 +24,24 @@ create table sector (
 	primary key (id),
 	foreign key (fk_galaxy) references galaxy (id) on delete cascade
 );
+
+-- star
+create table star (
+	id int not null auto_increment,
+	fk_sector int not null,
+	primary key (id),
+	foreign key (fk_sector) references sector (id) on delete cascade
+);
+
+-- planet
+create table planet (
+	id int not null auto_increment,
+	position int not null,
+	type varchar(255) not null,
+	ore int not null,
+	gas int not null,
+	fertility int not null,
+	fk_star int not null,
+	primary key (id),
+	foreign key (fk_star) references star (id) on delete cascade
+);

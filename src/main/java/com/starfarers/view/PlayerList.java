@@ -13,7 +13,7 @@ public class PlayerList {
 
 	@UniquePlayerView
 	@Valid
-	List<PlayerView> playerViews = new ArrayList<>();
+	private List<PlayerView> playerViews = new ArrayList<>();
 
 	public PlayerList(List<Player> players) {
 		setPlayers(players);

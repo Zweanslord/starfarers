@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.starfarers.dao.GalaxyDao;
 import com.starfarers.domain.map.Galaxy;
 import com.starfarers.domain.map.Terrain;
 import com.starfarers.service.GalaxyService;
@@ -25,9 +24,6 @@ public class GalaxyEditorController {
 
 	@Autowired
 	private GalaxyGenerator galaxyGenerator;
-
-	@Autowired
-	private GalaxyDao galaxyDao;
 
 	@Autowired
 	private GalaxyService galaxyService;
@@ -43,7 +39,7 @@ public class GalaxyEditorController {
 
 	@RequestMapping(value = "/editor/galaxy/{id}", method = RequestMethod.GET)
 	public String viewGalaxy(@PathVariable Integer id, ModelMap model) {
-		Galaxy galaxy = galaxyDao.find(id);
+		Galaxy galaxy = galaxyService.find(id);
 		setEnvironment(model);
 		model.put("galaxyFeatures", new GalaxyFeatures(galaxy.getRadius()));
 		model.put("galaxy", galaxy);
@@ -62,12 +58,12 @@ public class GalaxyEditorController {
 
 	@RequestMapping(value = "/editor/galaxy/delete/{id}", method = RequestMethod.POST)
 	public String deleteGalaxy(@PathVariable Integer id, ModelMap model) {
-		galaxyService.removeGalaxy(id);
+		galaxyService.remove(id);
 		return "redirect:/editor/galaxy";
 	}
 
 	private void setEnvironment(ModelMap model) {
-		model.put("galaxies", galaxyDao.findAll());
+		model.put("galaxies", galaxyService.findAll());
 		model.put("terrains", Arrays.asList(Terrain.values()));
 	}
 

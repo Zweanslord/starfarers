@@ -28,4 +28,11 @@ public class GalaxyDaoImpl extends BaseDaoImpl<Galaxy> implements GalaxyDao {
 		return galaxy;
 	}
 
+	@Transactional
+	public Galaxy findOne() {
+		Galaxy galaxy = super.findAll().get(0);
+		Hibernate.initialize(galaxy.getSectors());
+		return galaxy;
+	}
+
 }

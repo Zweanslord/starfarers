@@ -2,7 +2,6 @@ package com.starfarers.domain.map;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.Transient;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -34,15 +33,18 @@ public class Coordinates {
 		super();
 	}
 
-	@Transient
 	public Coordinates getNeighbour(Integer direction) {
 		Integer[] d = NEIGHBOURS[direction];
 		return new Coordinates(x + d[0], y + d[1]);
 	}
 
-	@Transient
 	public Integer getZ() {
 		return 0 - x - y;
+	}
+
+	@Override
+	public String toString() {
+		return "Coords [x=" + x + ", y=" + y + "]";
 	}
 
 	public Integer getX() {

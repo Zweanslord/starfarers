@@ -2,12 +2,28 @@ package com.starfarers.domain.map.system;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.Valid;
+
+import com.starfarers.domain.common.Common;
 import com.starfarers.domain.map.Sector;
 
-public class Star {
+@Entity
+@Table
+public class Star extends Common {
 
+	@OneToOne
+	@JoinColumn(name = "fk_sector", nullable = false)
 	private Sector sector;
 
+	@Valid
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "star")
 	private List<Planet> planets;
 
 	public Star(Sector sector) {
@@ -17,6 +33,15 @@ public class Star {
 
 	Star() {
 		super();
+	}
+
+	public void addPlanet(Planet planet) {
+		planets.add(planet);
+	}
+
+	@Override
+	public String toString() {
+		return "Star [id=" + getId() + ", planets=" + planets.size() + "]";
 	}
 
 	public Sector getSector() {

@@ -4,4 +4,6 @@ import com.starfarers.domain.map.Galaxy;
 
 public interface GalaxyDao extends BaseDao<Galaxy> {
 
+	Galaxy findOne();
+
 }

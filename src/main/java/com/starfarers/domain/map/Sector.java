@@ -1,15 +1,18 @@
 package com.starfarers.domain.map;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import com.starfarers.domain.common.Common;
+import com.starfarers.domain.map.system.Star;
 
 @Entity
 @Table
@@ -25,6 +28,9 @@ public class Sector extends Common {
 
 	private boolean starSystem;
 
+	@OneToOne(cascade = CascadeType.ALL, mappedBy = "sector")
+	private Star star;
+
 	@ManyToOne
 	@JoinColumn(name = "fk_galaxy", nullable = false)
 	private Galaxy galaxy;
@@ -39,6 +45,16 @@ public class Sector extends Common {
 
 	Sector() {
 		super();
+	}
+
+	public boolean hasStar() {
+		return star != null;
+	}
+
+	@Override
+	public String toString() {
+		return "Sector [id=" + getId() + ", " + coordinates.toString() + ", starSystem=" + starSystem + ", star=" + (star != null ? star.getId() : "")
+				+ ", terrain=" + terrain + "]";
 	}
 
 	public Coordinates getCoordinates() {
@@ -63,6 +79,14 @@ public class Sector extends Common {
 
 	public void setStarSystem(boolean starSystem) {
 		this.starSystem = starSystem;
+	}
+
+	public Star getStar() {
+		return star;
+	}
+
+	public void setStar(Star star) {
+		this.star = star;
 	}
 
 	public Galaxy getGalaxy() {

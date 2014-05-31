@@ -31,7 +31,7 @@
 			<polygon class="${sector.terrain}" 
 				points="-${width / 2},-${height / 2} -${totalWidth / 2},0 -${width / 2},${height / 2} ${width / 2},${height / 2} ${totalWidth / 2},0 ${width / 2},-${height / 2}" />
 			<c:if test="${sector.starSystem}">
-				<a xlink:href="star?x=${sector.coordinates.x}&y=${sector.coordinates.y}">
+				<a xlink:href="${pageContext.request.contextPath}/star/${galaxy.id}/${sector.coordinates.x}/${sector.coordinates.y}">
 					<circle class="star" 
 						r="${starRadius}" 
 						cy="${starRadius}" />

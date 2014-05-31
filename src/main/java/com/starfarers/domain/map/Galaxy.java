@@ -38,6 +38,11 @@ public class Galaxy extends Common {
 		super();
 	}
 
+	@Override
+	public String toString() {
+		return "Galaxy [id=" + getId() + ", radius=" + radius + "]";
+	}
+
 	public Integer getRadius() {
 		return radius;
 	}

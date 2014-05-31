@@ -1,30 +1,47 @@
 package com.starfarers.domain.map.system;
 
-public class Planet {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-	private Star star;
+import com.starfarers.domain.common.Common;
 
+@Entity
+@Table
+public class Planet extends Common {
+
+	@Column(nullable = false)
 	private Integer position;
 
+	@Column(nullable = false)
 	private String type;
 
+	@Column(nullable = false)
 	private Integer ore;
 
+	@Column(nullable = false)
 	private Integer gas;
 
+	@Column(nullable = false)
 	private Integer fertility;
 
-	public Planet(Star star, Integer position, String type, Integer ore, Integer gas, Integer fertility) {
+	@ManyToOne
+	@JoinColumn(name = "fk_star")
+	private Star star;
+
+	public Planet(Integer position, String type, Integer ore, Integer gas, Integer fertility, Star star) {
 		this();
-		this.star = star;
 		this.position = position;
 		this.type = type;
 		this.ore = ore;
 		this.gas = gas;
 		this.fertility = fertility;
+		this.star = star;
 	}
 
-	Planet() {
+	public Planet() {
 		super();
 	}
 
