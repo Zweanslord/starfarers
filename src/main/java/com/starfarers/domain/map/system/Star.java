@@ -1,5 +1,6 @@
 package com.starfarers.domain.map.system;
 
+import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -58,6 +59,18 @@ public class Star extends Common {
 
 	public void setPlanets(List<Planet> planets) {
 		this.planets = planets;
+	}
+
+	public void removePlanet(Integer position) {
+		for (Iterator<Planet> iterator = planets.iterator(); iterator.hasNext();) {
+			Planet planet = iterator.next();
+			Integer planetPosition = planet.getPosition();
+			if (planetPosition == position) {
+				iterator.remove();
+			} else if (planetPosition > position) {
+				planet.setPosition(planetPosition - 1);
+			}
+		}
 	}
 
 }

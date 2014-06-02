@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.starfarers.domain.map.Coordinates;
 import com.starfarers.domain.map.system.PlanetType;
@@ -48,6 +49,15 @@ public class StarEditorController {
 	@RequestMapping(value = "/editor/star/{galaxy}/{x}/{y}", params = "add", method = RequestMethod.POST)
 	public String addPlanet(@PathVariable Integer galaxy, @PathVariable Integer x, @PathVariable Integer y, @ModelAttribute Star star, ModelMap model) {
 		star.addPlanet(planetGenerator.generate(star));
+		model.addAttribute("star", star);
+		setEnvironment(model);
+		return "editor/star";
+	}
+
+	@RequestMapping(value = "/editor/star/{galaxy}/{x}/{y}", params = "remove", method = RequestMethod.POST)
+	public String removePlanet(@PathVariable Integer galaxy, @PathVariable Integer x, @PathVariable Integer y, @RequestParam Integer position,
+			@ModelAttribute Star star, ModelMap model) {
+		star.removePlanet(position);
 		model.addAttribute("star", star);
 		setEnvironment(model);
 		return "editor/star";

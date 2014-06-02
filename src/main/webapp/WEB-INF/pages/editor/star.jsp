@@ -62,6 +62,8 @@
 			<form:label path="planets[${status.index}].fertility">Fertility:</form:label>
 			<form:input type="number" path="planets[${status.index}].fertility" />
 			<form:errors path="planets[${status.index}].fertility" cssclass="error" />
+			
+			<button type="submit" name="remove" formaction="?position=${planet.position}">Verwijder</button>
 		</fieldset>
 	</c:forEach>
 	<button type="submit" name="add">Voeg nieuwe planeet toe</button>
