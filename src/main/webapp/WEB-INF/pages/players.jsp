@@ -6,7 +6,7 @@
 <h2>Active Players</h2>
 
 <ul>
-	<c:forEach items="${players}" var="player">
+	<c:forEach items="${playerList.playerViews}" var="player">
 		<li>
 			<c:out value="${player.name}" />
 		</li>
@@ -16,7 +16,7 @@
 <h2>Inactive Players</h2>
 
 <ul>
-	<c:forEach items="${inactivePlayers}" var="inactivePlayer">
+	<c:forEach items="${inactivePlayerList.playerViews}" var="inactivePlayer">
 		<li>
 			<c:out value="${inactivePlayer.name}" />
 		</li>

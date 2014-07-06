@@ -6,6 +6,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.starfarers.service.PlayerService;
+import com.starfarers.view.PlayerList;
 
 @Controller
 @RequestMapping("/players")
@@ -16,8 +17,8 @@ public class PlayersController {
 
 	@RequestMapping
 	public String showPlayers(ModelMap model) {
-		model.addAttribute("players", playerService.getActivePlayers());
-		model.addAttribute("inactivePlayers", playerService.getInactivePlayers());
+		model.addAttribute("playerList", new PlayerList(playerService.getActivePlayers()));
+		model.addAttribute("inactivePlayerList", new PlayerList(playerService.getInactivePlayers()));
 		return "players";
 	}
 }
