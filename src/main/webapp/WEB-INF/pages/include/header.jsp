@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<header>
-			<a href="${pageContext.request.contextPath}">Starfarers</a>
+			<a href="${pageContext.request.contextPath}/">Starfarers</a>
 		</header>
 		<div class="content">
 			<h1>${param.title}</h1>

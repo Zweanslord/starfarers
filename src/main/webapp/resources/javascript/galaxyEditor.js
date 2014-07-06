@@ -73,7 +73,7 @@ $(document).ready(function() {
 		$("#saving").show();
 		$.ajax({
 			type: "POST",
-			url: "/starfarers/editor/galaxy/save",
+			url: $("header > a").attr("href") + "editor/galaxy/save",
 			contentType: 'application/json',
 			data: JSON.stringify(getGalaxy()),
 			success: function(response) {
