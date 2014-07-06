@@ -52,7 +52,7 @@ public class GalaxyService {
 
 	private void updateStars(Galaxy originalGalaxy, Galaxy galaxy) {
 		for (Sector sector : galaxy.getSectors()) {
-			Sector originalSector = findSector(originalGalaxy, sector);
+			Sector originalSector = originalGalaxy.findSector(sector.getId());
 			if (originalSector != null) {
 				updateStar(originalSector, sector);
 			}
@@ -65,15 +65,6 @@ public class GalaxyService {
 		} else if (!originalSector.isStarSystem() && sector.isStarSystem()) {
 			sector.setStar(starGenerator.generate(sector));
 		}
-	}
-
-	private Sector findSector(Galaxy galaxy, Sector sector) {
-		for (Sector galaxySector : galaxy.getSectors()) {
-			if (galaxySector.getId().equals(sector.getId())) {
-				return galaxySector;
-			}
-		}
-		return null;
 	}
 
 }

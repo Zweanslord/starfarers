@@ -11,9 +11,13 @@ svg {
     margin: 0 auto;
 }
 
-svg.galaxy { 
+.galaxyVoid {
 	background-color: black;
 	padding: 1em;
+}
+
+svg.galaxy { 
+	background-color: black;
 }
 
 svg > *, svg.galaxy text { pointer-events: none; }
@@ -47,13 +51,20 @@ svg.galaxy g:hover text { font-weight: bold; }
 
 /* Editor */
 
-svg.galaxy.legend { 
-	background-color: white;
-	min-height: 4em;
+.legendContainer {
+	background-color: black;
+	color: white;
+	text-align: center;
 }
 
-svg.galaxy.legend text {
-	fill: black;
+.legendContainer .legendItem {
+	display: inline-block;
+	border: 1px solid black;
+	padding: 0 1em;
+}
+
+.legendContainer .description {
+	padding: 0.5em 0;
 }
 
 svg.galaxy.paint polygon.selected, svg.galaxy.paint circle.selected {

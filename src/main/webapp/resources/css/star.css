@@ -18,6 +18,7 @@ svg circle.rocky { fill: grey; }
 svg circle.jungle { fill: darkGreen; }
 svg circle.oceanic { fill: blue; }
 svg circle.crystal { fill: violet; }
+svg circle.unknown { fill: white; }
 
 svg .ore polygon { fill: lightgray; }
 svg .gas circle { fill: mediumPurple; }

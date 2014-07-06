@@ -9,7 +9,8 @@ public enum PlanetType {
 	ROCKY("rocky"),
 	JUNGLE("jungle"),
 	OCEANIC("oceanic"),
-	CRYSTAL("crystal");
+	CRYSTAL("crystal"),
+	UNKNOWN("unknown");
 
 	private String value;
 

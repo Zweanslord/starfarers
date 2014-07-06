@@ -38,6 +38,15 @@ public class Galaxy extends Common {
 		super();
 	}
 
+	public Sector findSector(int id) {
+		for (Sector sector : sectors) {
+			if (sector.getId().equals(id)) {
+				return sector;
+			}
+		}
+		return null;
+	}
+
 	@Override
 	public String toString() {
 		return "Galaxy [id=" + getId() + ", radius=" + radius + "]";
