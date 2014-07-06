@@ -43,29 +43,37 @@ public class GalaxyService {
 	}
 
 	public Galaxy save(Galaxy galaxy) {
-		starFormation(galaxy);
+		Galaxy originalGalaxy = find(galaxy.getId());
+		if (originalGalaxy != null) {
+			updateStars(originalGalaxy, galaxy);
+		}
 		return galaxyDao.save(galaxy);
 	}
 
-	private void starFormation(Galaxy galaxy) {
+	private void updateStars(Galaxy originalGalaxy, Galaxy galaxy) {
 		for (Sector sector : galaxy.getSectors()) {
-			refreshStar(sector);
-			if (sector.isStarSystem() && !sector.hasStar()) {
-				sector.setStar(starGenerator.generate(sector));
-			} else if (!sector.isStarSystem() && sector.hasStar()) {
-				sector.setStar(null);
+			Sector originalSector = findSector(originalGalaxy, sector);
+			if (originalSector != null) {
+				updateStar(originalSector, sector);
 			}
 		}
 	}
 
-	private void refreshStar(Sector sector) {
-		Integer id = sector.getId();
-		if (id != null) {
-			Sector foundSector = sectorDao.find(id);
-			if (foundSector != null) {
-				sector.setStar(foundSector.getStar());
+	private void updateStar(Sector originalSector, Sector sector) {
+		if (originalSector.isStarSystem() && originalSector.hasStar() && sector.isStarSystem()) {
+			sector.setStar(originalSector.getStar());
+		} else if (!originalSector.isStarSystem() && sector.isStarSystem()) {
+			sector.setStar(starGenerator.generate(sector));
+		}
+	}
+
+	private Sector findSector(Galaxy galaxy, Sector sector) {
+		for (Sector galaxySector : galaxy.getSectors()) {
+			if (galaxySector.getId().equals(sector.getId())) {
+				return galaxySector;
 			}
 		}
+		return null;
 	}
 
 }

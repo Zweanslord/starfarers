@@ -30,8 +30,9 @@ svg polygon.resonating.nebula { fill: skyBlue; }
 svg polygon.ionic.nebula { fill: crimson; }
 svg polygon.rifts { fill: darkblue; }
 svg polygon.gravity.well { fill: dimGray; }
+svg polygon.cluster { fill: goldenRod; }
 
-svg .star { fill: DarkOrange; }
+svg .star { fill: darkOrange; }
 
 
 svg.galaxy text { 

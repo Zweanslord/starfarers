@@ -19,14 +19,14 @@ public class GalaxyGenerator {
 		Galaxy galaxy = new Galaxy(radius);
 		List<Sector> sectors = new ArrayList<>();
 		Coordinates coordinates = new Coordinates(0, 0);
-		sectors.add(new Sector(new Coordinates(0, 0), getRandomTerrain(), false, galaxy));
+		sectors.add(new Sector(new Coordinates(0, 0), Terrain.CLUSTER.getValue(), false, galaxy));
 		for (int r = 1; r <= radius; r++) {
 			coordinates = coordinates.getNeighbour(4);
 			for (int h = 0; h < 6; h++) {
 				for (int line = 0; line < r; line++) {
 					coordinates = coordinates.getNeighbour(h);
-					boolean starSystem = new Random().nextBoolean();
-					sectors.add(new Sector(coordinates, getRandomTerrain(), starSystem, galaxy));
+					boolean starSystem = false; // new Random().nextBoolean();
+					sectors.add(new Sector(coordinates, Terrain.SPACE.getValue(), starSystem, galaxy));
 				}
 			}
 		}

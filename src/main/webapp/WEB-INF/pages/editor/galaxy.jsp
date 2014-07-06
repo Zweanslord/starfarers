@@ -37,6 +37,7 @@
 <div id="galaxy-id" style="display: none;">${galaxy.id}</div>
 <div id="galaxy-radius" style="display: none;">${galaxy.radius}</div>
 
+<div id="saving" style="display: none;"><marquee>Aan het opslaan...</marquee></div>
 <div id="saveGalaxySuccess" style="display: none;">Succesvol opgeslagen.</div>
 <div id="saveGalaxyFailure" style="display: none;">Opslaan gefaald.</div>
 
@@ -64,7 +65,7 @@
 <button class="paintBarOpener"></button>
 
 <svg class="galaxy editor"
-	viewBox="0 0 ${height + galaxy.radius * 2 * (totalWidth + width) / 2} ${height + galaxy.radius * 2 * height}">
+	viewBox="0 0 ${height + galaxy.radius * 2 * (totalWidth + width) / 2} ${height + galaxy.radius * 2 * height + 1}">
 	<c:forEach items="${galaxy.sectors}" var="sector">
 		<g transform="translate(${totalWidth / 2 + galaxy.radius * (totalWidth + width) / 2 + sector.coordinates.x * (width + sideWidth)},${height / 2 + galaxy.radius * height + 0.3 + sector.coordinates.y * height + sector.coordinates.x * height / 2})">
 			<polygon class="${sector.terrain}" 

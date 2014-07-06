@@ -19,7 +19,7 @@ public class StarGenerator {
 
 	public Star generate(Sector sector) {
 		Star star = new Star(sector);
-		star.setPlanets(generatePlanets(star));
+		// star.setPlanets(generatePlanets(star));
 		return star;
 	}
 

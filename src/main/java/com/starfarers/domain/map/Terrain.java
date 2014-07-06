@@ -8,7 +8,8 @@ public enum Terrain {
 	RESONATING_NEBULA("resonating nebula"),
 	IONIC_NEBULA("ionic nebula"),
 	RIFTS("rifts"),
-	GRAVITY_WELL("gravity well");
+	GRAVITY_WELL("gravity well"),
+	CLUSTER("cluster");
 
 	private String value;
 

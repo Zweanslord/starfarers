@@ -70,12 +70,14 @@ $(document).ready(function() {
 	$("#saveGalaxy").click(function () {
 		$("#saveGalaxySuccess").hide();
 		$("#saveGalaxyFailure").hide();
+		$("#saving").show();
 		$.ajax({
 			type: "POST",
 			url: "/starfarers/editor/galaxy/save",
 			contentType: 'application/json',
 			data: JSON.stringify(getGalaxy()),
 			success: function(response) {
+				$("#saving").hide();
 				if (response) {
 					if ($("#galaxy-id").text() == "") {
 						window.location.href = window.location.href + "/" + response;
@@ -84,6 +86,10 @@ $(document).ready(function() {
 				} else {
 					$("#saveGalaxyFailure").show();
 				}
+			},
+			failure: function(response) {
+				$("#saving").hide();
+				$("#saveGalaxyFailure").show();
 			}
 		});
 	});
