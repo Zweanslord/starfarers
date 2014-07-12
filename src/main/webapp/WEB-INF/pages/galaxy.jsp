@@ -27,7 +27,7 @@
 								r="${starRadius}" 
 								cy="${starRadius}" />
 					</c:if>
-					<text y="-${starRadius}">${sector.coordinates.x + 26},${sector.coordinates.y + 26}</text>
+					<text y="-${starRadius}">${sector.coordinates.x},${sector.coordinates.y}</text>
 				</g>
 			</c:forEach>
 		</g>
