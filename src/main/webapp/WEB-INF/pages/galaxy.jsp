@@ -12,26 +12,25 @@
 <div class="galaxyVoid">
 	<div class="galaxyHeight" style="display: none;">${height + galaxy.radius * 2 * (totalWidth + width) / 2}</div>
 	<div class="galaxyWidth" style="display: none;">${height + galaxy.radius * 2 * height + 1}</div>
-	<svg class="galaxy"
-		viewBox="0 0 ${height + galaxy.radius * 2 * (totalWidth + width) / 2} ${height + galaxy.radius * 2 * height + 1}"
+	<!-- viewBox="0 0 ${height + galaxy.radius * 2 * (totalWidth + width) / 2} ${height + galaxy.radius * 2 * height + 1}" -->
+	<svg class="galaxy interaction"
 		xmlns="http://www.w3.org/2000/svg"
 	    xmlns:xlink="http://www.w3.org/1999/xlink"
-	    version="1.1"
-	    preserveAspectRatio="xMidYMid meet">
-		<c:forEach items="${galaxy.sectors}" var="sector">
-			<g transform="translate(${totalWidth / 2 + galaxy.radius * (totalWidth + width) / 2 + sector.coordinates.x * (width + sideWidth)},${height / 2 + galaxy.radius * height + 0.3 + sector.coordinates.y * height + sector.coordinates.x * height / 2})">
-				<polygon class="${sector.terrain}" 
-					points="-${width / 2},-${height / 2} -${totalWidth / 2},0 -${width / 2},${height / 2} ${width / 2},${height / 2} ${totalWidth / 2},0 ${width / 2},-${height / 2}" />
-				<c:if test="${sector.starSystem}">
-					<a xlink:href="${pageContext.request.contextPath}/star/${galaxy.id}/${sector.coordinates.x}/${sector.coordinates.y}">
+	    version="1.1">
+ 		<g id="viewport" transform="translate(0,0)">
+			<c:forEach items="${galaxy.sectors}" var="sector">
+				<g class="sector" transform="translate(${totalWidth / 2 + galaxy.radius * (totalWidth + width) / 2 + sector.coordinates.x * (width + sideWidth)},${height / 2 + galaxy.radius * height + 0.3 + sector.coordinates.y * height + sector.coordinates.x * height / 2})">
+					<polygon class="${sector.terrain}" 
+						points="-${width / 2},-${height / 2} -${totalWidth / 2},0 -${width / 2},${height / 2} ${width / 2},${height / 2} ${totalWidth / 2},0 ${width / 2},-${height / 2}" />
+					<c:if test="${sector.starSystem}">
 						<circle class="star" 
-							r="${starRadius}" 
-							cy="${starRadius}" />
-					</a>
-				</c:if>
-				<text y="-${starRadius}">${sector.coordinates.x},${sector.coordinates.y}</text>
-			</g>
-		</c:forEach>
+								r="${starRadius}" 
+								cy="${starRadius}" />
+					</c:if>
+					<text y="-${starRadius}">${sector.coordinates.x + 26},${sector.coordinates.y + 26}</text>
+				</g>
+			</c:forEach>
+		</g>
 	</svg>
 </div>
 

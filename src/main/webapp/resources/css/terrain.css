@@ -12,7 +12,7 @@ svg {
 }
 
 .galaxyVoid {
-	background-color: black;
+	background-color: #151515;
 	padding: 1em;
 }
 
@@ -45,9 +45,16 @@ svg.galaxy text {
 	fill: white;
 }
 
-svg.galaxy g:hover polygon, svg.galaxy g:hover circle { opacity: 0.7; }
-svg.galaxy g:hover polygon.space { fill: #555; }
-svg.galaxy g:hover text { font-weight: bold; }
+svg.galaxy g.sector:hover polygon, svg.galaxy g.sector:hover circle { opacity: 0.7; }
+svg.galaxy g.sector:hover polygon.space { fill: #555; }
+svg.galaxy g.sector:hover text { font-weight: bold; }
+
+/* Interactive */
+
+svg.galaxy.interaction {
+	height: 70vh;
+	width: 90%;
+}
 
 /* Editor */
 
@@ -60,7 +67,7 @@ svg.galaxy g:hover text { font-weight: bold; }
 .legendContainer .legendItem {
 	display: inline-block;
 	border: 1px solid black;
-	padding: 0 1em;
+	padding: 1em 1em 0;
 }
 
 .legendContainer .description {
