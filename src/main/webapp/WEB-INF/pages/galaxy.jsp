@@ -3,8 +3,13 @@
 	<jsp:param name="title" value="Galaxy" />
 </jsp:include>
 
-<c:set var="height" value="60" />
-<c:set var="width" value="${height / 2}" />
+<%
+Integer width = 36;
+Double height = Math.sqrt(width * width - (width / 2) * (width / 2)) * 2;
+
+pageContext.setAttribute("width", width);
+pageContext.setAttribute("height", height);
+%>
 <c:set var="sideWidth" value="${width / 2}" />
 <c:set var="totalWidth" value="${width + 2 * sideWidth}" />
 <c:set var="starRadius" value="${height / 5}" />
@@ -40,7 +45,7 @@
 			<g transform="translate(${totalWidth / 2 + 1},${height / 2})">
 				<polygon class="space" points="-${width / 2},-${height / 2} -${totalWidth / 2},0 -${width / 2},${height / 2} ${width / 2},${height / 2} ${totalWidth / 2},0 ${width / 2},-${height / 2}" />
 			</g>
-			<g transform="translate(${height / 2 + 1}, ${height / 2})">
+			<g transform="translate(${width}, ${height / 2})">
 				<circle class="star" r="${starRadius}" />
 			</g>
 		</svg>

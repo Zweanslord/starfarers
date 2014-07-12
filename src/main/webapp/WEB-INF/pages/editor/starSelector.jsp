@@ -15,8 +15,13 @@
 <div id="galaxy-id" style="display: none;">${galaxy.id}</div>
 <div id="galaxy-radius" style="display: none;">${galaxy.radius}</div>
 
-<c:set var="height" value="60" />
-<c:set var="width" value="${height / 2}" />
+<%
+Integer width = 36;
+Double height = Math.sqrt(width * width - (width / 2) * (width / 2)) * 2;
+
+pageContext.setAttribute("width", width);
+pageContext.setAttribute("height", height);
+%>
 <c:set var="sideWidth" value="${width / 2}" />
 <c:set var="totalWidth" value="${width + 2 * sideWidth}" />
 <c:set var="starRadius" value="${height / 5}" />

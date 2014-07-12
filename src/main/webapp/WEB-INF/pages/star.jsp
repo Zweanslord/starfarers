@@ -13,8 +13,13 @@
 <c:set var="resourceOffset" value="${resourceSize}" />
 <c:set var="resourceTextOffset" value="12" />
 
-<c:set var="height" value="60" />
-<c:set var="width" value="${height / 2}" />
+<%
+Integer width = 36;
+Double height = Math.sqrt(width * width - (width / 2) * (width / 2)) * 2;
+
+pageContext.setAttribute("width", width);
+pageContext.setAttribute("height", height);
+%>
 <c:set var="sideWidth" value="${width / 2}" />
 <c:set var="totalWidth" value="${width + 2 * sideWidth}" />
 
