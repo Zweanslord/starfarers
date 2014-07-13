@@ -43,9 +43,11 @@ public class GalaxyService {
 	}
 
 	public Galaxy save(Galaxy galaxy) {
-		Galaxy originalGalaxy = find(galaxy.getId());
-		if (originalGalaxy != null) {
-			updateStars(originalGalaxy, galaxy);
+		if (galaxy.getId() != null) {
+			Galaxy originalGalaxy = find(galaxy.getId());
+			if (originalGalaxy != null) {
+				updateStars(originalGalaxy, galaxy);
+			}
 		}
 		return galaxyDao.save(galaxy);
 	}

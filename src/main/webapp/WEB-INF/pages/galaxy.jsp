@@ -14,14 +14,17 @@ pageContext.setAttribute("height", height);
 <c:set var="totalWidth" value="${width + 2 * sideWidth}" />
 <c:set var="starRadius" value="${height / 5}" />
 
+<jsp:directive.include file="terrain/style.jsp" />
+
 <div class="galaxyVoid">
 	<div class="galaxyHeight" style="display: none;">${height + galaxy.radius * 2 * (totalWidth + width) / 2}</div>
 	<div class="galaxyWidth" style="display: none;">${height + galaxy.radius * 2 * height + 1}</div>
-	<!-- viewBox="0 0 ${height + galaxy.radius * 2 * (totalWidth + width) / 2} ${height + galaxy.radius * 2 * height + 1}" -->
 	<svg class="galaxy interaction"
 		xmlns="http://www.w3.org/2000/svg"
 	    xmlns:xlink="http://www.w3.org/1999/xlink"
 	    version="1.1">
+	    <jsp:include page="terrain/patterns.jsp" />
+	    
  		<g id="viewport" transform="translate(0,0)">
 			<c:forEach items="${galaxy.sectors}" var="sector">
 				<g class="sector" transform="translate(${totalWidth / 2 + galaxy.radius * (totalWidth + width) / 2 + sector.coordinates.x * (width + sideWidth)},${height / 2 + galaxy.radius * height + 0.3 + sector.coordinates.y * height + sector.coordinates.x * height / 2})">

@@ -21,6 +21,10 @@ public enum Terrain {
 		return value;
 	}
 
+	public String getNoSpace() {
+		return value.replace(" ", "-");
+	}
+
 	public Terrain getEnum(String terrainString) {
 		for (Terrain terrain : Terrain.values()) {
 			if (value.equals(terrainString)) {

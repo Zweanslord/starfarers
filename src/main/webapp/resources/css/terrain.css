@@ -27,7 +27,7 @@ svg polygon, svg g { pointer-events: visiblepainted; }
 svg.galaxy polygon { stroke: white; stroke-width: 1; }
 
 svg polygon.space { fill: black; }
-svg polygon.asteroids { fill: sienna; }
+svg polygon.asteroids { fill: url(http://jsfiddle.net/v5VDp/1/#texture1) sienna; }
 svg polygon.volatile.nebula { fill: darkGreen; }
 svg polygon.shrouding.nebula { fill: tan; }
 svg polygon.resonating.nebula { fill: skyBlue; }
