@@ -1,0 +1,19 @@
+.mapButton {
+	background-color: darkSlateGray;
+	border: medium none;
+	color: white;
+	padding: 0.5em;
+}
+
+.buttons {
+	margin: 0 0 1em;
+    text-align: center;
+}
+
+.buttons .mapButton {
+	margin-left: 0.5em;
+}
+
+.buttons .mapButton:first-child {
+	margin-left: 0;
+}

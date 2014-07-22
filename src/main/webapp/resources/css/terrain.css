@@ -56,6 +56,27 @@ svg.galaxy.interaction {
 	width: 90%;
 }
 
+.galaxyVoid:-webkit-full-screen {
+	height: 100%;
+	width: 100%;
+}
+
+.galaxyVoid:fullscreen svg.galaxy.interaction {
+	height: 86vh;
+}
+
+.galaxyVoid:-moz-full-screen svg.galaxy.interaction {
+	height: 86vh;
+}
+
+.galaxyVoid:-webkit-full-screen svg.galaxy.interaction {
+	height: 86vh;
+}
+
+.galaxyVoid:-ms-fullscreen svg.galaxy.interaction {
+	height: 86vh;
+}
+
 /* Editor */
 
 .legendContainer {

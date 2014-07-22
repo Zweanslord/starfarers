@@ -17,8 +17,12 @@ pageContext.setAttribute("height", height);
 <jsp:directive.include file="terrain/style.jsp" />
 
 <div class="galaxyVoid">
-	<div class="galaxyHeight" style="display: none;">${height + galaxy.radius * 2 * (totalWidth + width) / 2}</div>
-	<div class="galaxyWidth" style="display: none;">${height + galaxy.radius * 2 * height + 1}</div>
+	<div class="buttons">
+		<button id="centerMap" class="mapButton">Center</button>
+		<button id="fullScreen" class="mapButton">Full Screen</button>
+	</div>
+	<div id="galaxyHeight" style="display: none;">${height + galaxy.radius * 2 * (totalWidth + width) / 2}</div>
+	<div id="galaxyWidth" style="display: none;">${(galaxy.radius * 2 + 1) * totalWidth + 1}</div>
 	<svg class="galaxy interaction"
 		xmlns="http://www.w3.org/2000/svg"
 	    xmlns:xlink="http://www.w3.org/1999/xlink"
