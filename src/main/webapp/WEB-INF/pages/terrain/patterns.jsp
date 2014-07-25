@@ -1,6 +1,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <defs>
-	<pattern id="star" patternUnits="userSpaceOnUse" width="50" height="50" patternTransform="translate(25,-12.5)">
+	<pattern id="pattern-star" patternUnits="userSpaceOnUse" width="50" height="50" patternTransform="translate(25,-12.5)">
 		<image xlink:href="${pageContext.request.contextPath}/resources/images/star.png" x="0" y="0" width="50" height="50" />
 	</pattern>
 	
