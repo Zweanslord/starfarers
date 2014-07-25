@@ -2,7 +2,8 @@ $(document).ready(function() {
 	$('svg.galaxy.interaction').svgPan('viewport');
 	
 	function centerMap() {
-		var galaxy = $('svg.galaxy');		
+		var galaxy = $('svg.galaxy');
+		$('svg.galaxy #viewport').attr('transform', 'translate(0,0)'); // reset to get proper BBox
 		var galaxyBBox = galaxy.get(0).getBBox();
 		
 		var galaxyHeight = galaxyBBox.height;
@@ -32,6 +33,10 @@ $(document).ready(function() {
 			request = document.exitFullscreen || document.mozCancelFullScreen || document.webkitExitFullscreen || document.msExitFullscreen;
 			request.call(document);
 		}
+	}
+	
+	if (document.fullscreenEnabled || document.mozFullScreenEnabled || document.webkitFullscreenEnabled || document.msFullscreenEnabled) {
+		$('#fullScreen.mapButton').show();
 	}
 	
 	$('#fullScreen.mapButton').click(function() {

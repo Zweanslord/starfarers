@@ -1,8 +1,9 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>${param.title}</title>
+		<title><spring:message code="title.${param.title}" /></title>
 		<meta charset="utf-8" />
 		<link rel="shortcut icon" type="image/png" href="${pageContext.request.contextPath}/resources/images/galaxy.png" />
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/normalize.css" />
@@ -21,4 +22,4 @@
 			<a href="${pageContext.request.contextPath}/">Starfarers</a>
 		</header>
 		<div class="content">
-			<h1>${param.title}</h1>
+			<h1><spring:message code="title.${param.title}" /></h1>

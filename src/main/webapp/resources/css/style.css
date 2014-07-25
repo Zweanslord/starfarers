@@ -34,9 +34,16 @@ header a:link, header a:visited {
 }
 
 footer {
-	text-align: right;
 	font-size: 0.8em;
 	margin: 1.4em;
+}
+
+footer a:link, footer a:visited {
+	color: white;	
+}
+
+.credits {
+	float: right;
 }
 
 h1 {

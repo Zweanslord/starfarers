@@ -1,7 +1,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <jsp:include page="/WEB-INF/pages/include/header.jsp">
-	<jsp:param name="title" value="Galaxy Editor" />
+	<jsp:param name="title" value="editor.galaxy" />
 </jsp:include>
 
 <ul class="tabs">

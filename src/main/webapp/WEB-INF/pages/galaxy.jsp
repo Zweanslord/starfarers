@@ -1,6 +1,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <jsp:include page="/WEB-INF/pages/include/header.jsp">
-	<jsp:param name="title" value="Galaxy" />
+	<jsp:param name="title" value="galaxy" />
 </jsp:include>
 
 <%
@@ -18,8 +19,8 @@ pageContext.setAttribute("height", height);
 
 <div class="galaxyVoid">
 	<div class="buttons">
-		<button id="centerMap" class="mapButton">Center</button>
-		<button id="fullScreen" class="mapButton">Full Screen</button>
+		<button id="centerMap" class="mapButton"><spring:message code="center" /></button>
+		<button id="fullScreen" class="mapButton" style="display: none;"><spring:message code="fullscreen" /></button>
 	</div>
 	<div id="galaxyHeight" style="display: none;">${height + galaxy.radius * 2 * (totalWidth + width) / 2}</div>
 	<div id="galaxyWidth" style="display: none;">${(galaxy.radius * 2 + 1) * totalWidth + 1}</div>
@@ -47,7 +48,7 @@ pageContext.setAttribute("height", height);
 </div>
 
 <div class="legendContainer">
-	<div class="legendItem">
+	<a class="legendItem" href="${pageContext.request.contextPath}/terrain/legend/#star">
 		<svg class="galaxy legend" width="${totalWidth + 2}" height="${height + 1}">
 			<g transform="translate(${totalWidth / 2 + 1},${height / 2})">
 				<polygon class="space" points="-${width / 2},-${height / 2} -${totalWidth / 2},0 -${width / 2},${height / 2} ${width / 2},${height / 2} ${totalWidth / 2},0 ${width / 2},-${height / 2}" />
@@ -56,18 +57,18 @@ pageContext.setAttribute("height", height);
 				<circle class="star" r="${starRadius}" />
 			</g>
 		</svg>
-		<div class="description">star</div>
-	</div>
+		<div class="description"><spring:message code="star" /></div>
+	</a>
 	
 	<c:forEach items="${terrains}" var="terrain" varStatus="position">
-		<div class="legendItem">
+		<a class="legendItem" href="${pageContext.request.contextPath}/terrain/legend#${terrain.noSpace}">
 			<svg class="galaxy legend" width="${totalWidth + 1}" height="${height + 1}">
 				<g transform="translate(${totalWidth / 2},${height / 2})">
 					<polygon class="${terrain.value}" points="-${width / 2},-${height / 2} -${totalWidth / 2},0 -${width / 2},${height / 2} ${width / 2},${height / 2} ${totalWidth / 2},0 ${width / 2},-${height / 2}" />
 				</g>
 			</svg>
-			<div class="description">${terrain.value}</div>
-		</div>
+			<div class="description"><spring:message code="${terrain.noSpace}"/></div>
+		</a>
 	</c:forEach>
 </div>
 

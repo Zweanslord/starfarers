@@ -10,7 +10,7 @@
 	<name>starfarers</name>
 	<description>Starfarers project</description>
 	
-	<properties>
+	<properties>	
 		<spring.version>4.0.3.RELEASE</spring.version>
 		<mysql.version>5.1.30</mysql.version>
 		<hibernate.version>4.3.5.Final</hibernate.version>

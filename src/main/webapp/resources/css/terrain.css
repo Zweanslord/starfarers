@@ -49,6 +49,11 @@ svg.galaxy g.sector:hover polygon, svg.galaxy g.sector:hover circle { opacity: 0
 svg.galaxy g.sector:hover polygon.space { fill: #555; }
 svg.galaxy g.sector:hover text { font-weight: bold; }
 
+/* Patterns */
+.patterns {
+	height: 0;
+}
+
 /* Interactive */
 
 svg.galaxy.interaction {
@@ -77,11 +82,62 @@ svg.galaxy.interaction {
 	height: 86vh;
 }
 
-/* Editor */
+/* Terrain Legend */
+
+.terrainLegend .terrain {
+	background-color: black;
+	padding: 1em;
+}
+
+.terrainLegend h2 {
+	text-align: center;
+}
+
+@media all and (min-width: 35em) {
+	.terrainLegend h2 {
+		text-align: left;
+		margin-top: 0;
+	}
+	
+	.terrainLegend .legendItem {
+		clear: both;
+		margin-bottom: 1em;
+   		min-height: 6em;
+   		position: relative;
+	}
+	
+	.terrainLegend .terrain {
+		float: left;
+		box-sizing: border-box;
+		height: 100%;
+		position: absolute;
+	}
+	
+	.terrainLegend .explanation {
+		padding-left: 8em;
+	}
+	
+	.terrainLegend .explanation p {
+		margin-bottom: 0;
+	}
+}
+
+@media all and (min-width: 70em) {
+	.terrainLegend .legendItem {
+		vertical-align: top;
+		display: inline-block;
+		width: 45%;
+	}
+	
+	.terrainLegend .terrain {
+		height: auto;
+	}
+}
+
+/* Galaxy Legend */
 
 .legendContainer {
 	background-color: black;
-	color: white;
 	text-align: center;
 }
 
@@ -94,6 +150,13 @@ svg.galaxy.interaction {
 .legendContainer .description {
 	padding: 0.5em 0;
 }
+
+.legendContainer, .legendContainer a:link, .legendContainer a:visited {
+	color: white;
+	text-decoration: none;
+}
+
+/* Editor */
 
 svg.galaxy.paint polygon.selected, svg.galaxy.paint circle.selected {
 	stroke: goldenrod;

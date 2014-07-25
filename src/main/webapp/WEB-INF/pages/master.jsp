@@ -1,5 +1,5 @@
 <jsp:include page="/WEB-INF/pages/include/header.jsp">
-	<jsp:param name="title" value="Game Master" />
+	<jsp:param name="title" value="master" />
 </jsp:include>
 
 <p>This section contains utilities for the game master.</p>

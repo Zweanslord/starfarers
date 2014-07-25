@@ -1,7 +1,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <jsp:include page="/WEB-INF/pages/include/header.jsp">
-	<jsp:param name="title" value="Player Administration" />
+	<jsp:param name="title" value="admin.players" />
 </jsp:include>
 
 <c:choose>

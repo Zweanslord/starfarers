@@ -5,7 +5,7 @@
 	</pattern>
 	
 	<c:forEach items="${terrains}" var="terrain" varStatus="position">
-		<pattern id="${terrain.noSpace}" patternUnits="userSpaceOnUse" width="100" height="60" patternTransform="translate(50,30)">
+		<pattern id="pattern-${terrain.noSpace}" patternUnits="userSpaceOnUse" width="100" height="60" patternTransform="translate(50,30)">
 			<image xlink:href="${pageContext.request.contextPath}/resources/images/${terrain.noSpace}.png" x="0" y="0" width="100" height="60" />
 	   	</pattern>
 	</c:forEach>
