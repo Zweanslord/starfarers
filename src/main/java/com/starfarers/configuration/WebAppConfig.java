@@ -43,7 +43,8 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 				"/WEB-INF/classes/i18n/messages", 
 				"/WEB-INF/classes/i18n/titles",
 				"/WEB-INF/classes/i18n/content",
-				"/WEB-INF/classes/i18n/galaxy"
+				"/WEB-INF/classes/i18n/galaxy",
+				"/WEB-INF/classes/i18n/user"
 			});
 		messageSource.setUseCodeAsDefaultMessage(true);
 		return messageSource;

@@ -1,0 +1,23 @@
+.user {
+	padding-left: 1em;
+}
+
+.user form, .user form div {
+	display: inline;
+}
+
+.user form input, .user button {
+	color: black;
+}
+
+.logout {
+	display: inline;
+}
+
+.logout button {
+	background: none;
+	border: medium none;
+	padding: 0;
+	text-decoration: underline;
+	color: white;
+}

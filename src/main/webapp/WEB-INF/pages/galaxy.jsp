@@ -52,8 +52,6 @@ pageContext.setAttribute("height", height);
 		<svg class="galaxy legend" width="${totalWidth + 2}" height="${height + 1}">
 			<g transform="translate(${totalWidth / 2 + 1},${height / 2})">
 				<polygon class="space" points="-${width / 2},-${height / 2} -${totalWidth / 2},0 -${width / 2},${height / 2} ${width / 2},${height / 2} ${totalWidth / 2},0 ${width / 2},-${height / 2}" />
-			</g>
-			<g transform="translate(${width}, ${height / 2})">
 				<circle class="star" r="${starRadius}" />
 			</g>
 		</svg>

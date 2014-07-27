@@ -1,9 +1,10 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <jsp:include page="/WEB-INF/pages/include/header.jsp">
 	<jsp:param name="title" value="players" />
 </jsp:include>
 
-<h2>Active Players</h2>
+<h2><spring:message code="active.players" /></h2>
 
 <ul>
 	<c:forEach items="${playerList.playerViews}" var="player">
@@ -13,7 +14,7 @@
 	</c:forEach>
 </ul>
 
-<h2>Inactive Players</h2>
+<h2><spring:message code="inactive.players" /></h2>
 
 <ul>
 	<c:forEach items="${inactivePlayerList.playerViews}" var="inactivePlayer">
