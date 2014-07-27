@@ -82,6 +82,16 @@ svg.galaxy.interaction {
 	height: 86vh;
 }
 
+/* Coordinates */
+
+.galaxyVoid.noCoordinates .sector:not(.coordinate) text {
+	display: none;
+}
+
+.galaxyVoid.noCoordinates .sector:hover text {
+	display: initial;
+}
+
 /* Terrain Legend */
 
 .terrainLegend .terrain {

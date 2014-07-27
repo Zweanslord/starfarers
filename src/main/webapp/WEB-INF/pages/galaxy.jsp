@@ -21,6 +21,7 @@ pageContext.setAttribute("height", height);
 	<div class="buttons">
 		<button id="centerMap" class="mapButton"><spring:message code="center" /></button>
 		<button id="fullScreen" class="mapButton" style="display: none;"><spring:message code="fullscreen" /></button>
+		<button id="toggleCoordinates" class="mapButton"><spring:message code="coordinates.toggle" /></button>
 	</div>
 	<div id="galaxyHeight" style="display: none;">${height + galaxy.radius * 2 * (totalWidth + width) / 2}</div>
 	<div id="galaxyWidth" style="display: none;">${(galaxy.radius * 2 + 1) * totalWidth + 1}</div>
@@ -32,7 +33,7 @@ pageContext.setAttribute("height", height);
 	    
  		<g id="viewport" transform="translate(0,0)">
 			<c:forEach items="${galaxy.sectors}" var="sector">
-				<g class="sector" transform="translate(${totalWidth / 2 + galaxy.radius * (totalWidth + width) / 2 + sector.coordinates.x * (width + sideWidth)},${height / 2 + galaxy.radius * height + 0.3 + sector.coordinates.y * height + sector.coordinates.x * height / 2})">
+				<g class="sector${sector.starSystem || sector.terrain == 'cluster' ? ' coordinate' : ''}" transform="translate(${totalWidth / 2 + galaxy.radius * (totalWidth + width) / 2 + sector.coordinates.x * (width + sideWidth)},${height / 2 + galaxy.radius * height + 0.3 + sector.coordinates.y * height + sector.coordinates.x * height / 2})">
 					<polygon class="${sector.terrain}" 
 						points="-${width / 2},-${height / 2} -${totalWidth / 2},0 -${width / 2},${height / 2} ${width / 2},${height / 2} ${totalWidth / 2},0 ${width / 2},-${height / 2}" />
 					<c:if test="${sector.starSystem}">
