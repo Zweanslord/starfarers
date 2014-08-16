@@ -71,7 +71,7 @@ public class User extends Common implements UserDetails {
 		}
 	}
 
-	private boolean has(Role role) {
+	public boolean has(Role role) {
 		boolean result = false;
 		for (UserRole userRole : userRoles) {
 			if (userRole.getRole().equals(role)) {

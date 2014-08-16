@@ -10,6 +10,7 @@
 	<li><a href="galaxy"><spring:message code="title.galaxy" /></a></li>
 	<li><a href="terrain/legend"><spring:message code="title.terrain.legend" /></a></li>
 	<li><a href="players"><spring:message code="title.players" /></a></li>
+	<li><a href="users"><spring:message code="title.users" /></a></li>
 	<security:authorize access="hasRole('ROLE_ADMINISTRATOR')">
 		<li><a href="master"><spring:message code="title.master" /></a></li>
 	</security:authorize>
