@@ -20,7 +20,7 @@
 			<form:hidden path="playerViews[${status.index}].id" />
 			<form:label path="playerViews[${status.index}].name">Naam:</form:label>
 			<form:input path="playerViews[${status.index}].name" />
-			<form:errors path="playerViews[${status.index}].name" cssclass="error" />
+			<form:errors path="playerViews[${status.index}].name" cssClass="error" />
 			<form:checkbox path="playerViews[${status.index}].active" label="Active" />
 			<form:checkbox path="playerViews[${status.index}].delete" label="Delete" />
 		</fieldset>

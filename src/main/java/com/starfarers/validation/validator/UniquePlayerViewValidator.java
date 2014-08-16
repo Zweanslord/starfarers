@@ -13,7 +13,6 @@ public class UniquePlayerViewValidator implements ConstraintValidator<UniquePlay
 	public void initialize(UniquePlayerView constraintAnnotation) {
 	}
 
-	@Override
 	public boolean isValid(List<PlayerView> playerViews, ConstraintValidatorContext constraintContext) {
 		for (PlayerView playerView : playerViews) {
 			for (PlayerView toCompareWith : playerViews) {

@@ -23,4 +23,6 @@
 
 <p><spring:message code="login.intro"/></p>
 
-<jsp:directive.include file="/WEB-INF/pages/include/footer.jsp" />
+<jsp:include page="/WEB-INF/pages/include/footer.jsp">
+	<jsp:param name="hide" value="trues" />
+</jsp:include>

@@ -8,12 +8,14 @@ public interface BaseDao<T> {
 
 	public T save(T entity);
 
-	public void saveAll(List<T> entities);
+	public void save(List<T> entities);
 
 	public void remove(T entity);
 
 	public T find(Integer id);
 
 	public List<T> findAll();
+
+	public <P> T findBy(String attribute, P parameter);
 
 }

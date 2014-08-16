@@ -34,8 +34,8 @@ public class PlayersAdminController {
 		}
 		boolean success = true;
 		try {
-			playerService.removePlayers(playerList.getPlayersToDelete());
-			playerService.savePlayers(playerList.getPlayersToSave());
+			playerService.remove(playerList.getPlayersToDelete());
+			playerService.save(playerList.getPlayersToSave());
 		} catch (Exception e) {
 			success = false;
 			model.addAttribute("success", success);

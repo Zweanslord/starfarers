@@ -24,10 +24,10 @@ import com.starfarers.domain.map.system.Star;
 @Repository
 public class StarDaoImpl extends BaseDaoImpl<Star> implements StarDao {
 
+	private static final Class<Star> entityClass = Star.class;
+
 	@PersistenceContext
 	private EntityManager entityManager;
-
-	private static Class<Star> entityClass = Star.class;
 
 	protected StarDaoImpl() {
 		super(entityClass);

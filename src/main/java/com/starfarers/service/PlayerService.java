@@ -28,12 +28,12 @@ public class PlayerService {
 		return playerDao.getPlayersByActive(false);
 	}
 
-	public void savePlayers(List<Player> players) {
-		playerDao.saveAll(players);
+	public void save(List<Player> players) {
+		playerDao.save(players);
 	}
 
 	@Transactional
-	public void removePlayers(List<Player> players) {
+	public void remove(List<Player> players) {
 		for (Player player : players) {
 			playerDao.remove(player);
 		}

@@ -10,6 +10,7 @@
 	<li><a href="star"><spring:message code="title.star" /></a></li>
 	<li><a href="editor/starSelector"><spring:message code="title.editor.starSelector" /></a></li>
 	<li><a href="admin/players"><spring:message code="title.admin.players" /></a></li>
+	<li><a href="admin/user"><spring:message code="title.admin.user" /></a></li>
 </ul>
 
 <jsp:directive.include file="/WEB-INF/pages/include/footer.jsp" />

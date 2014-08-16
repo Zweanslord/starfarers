@@ -1,3 +1,24 @@
+-- user
+CREATE TABLE User
+(
+	id			int NOT NULL AUTO_INCREMENT,
+	username	VARCHAR(255) NOT NULL UNIQUE,
+	password	VARCHAR(255) NOT NULL,
+	enabled		bool NOT NULL DEFAULT TRUE,
+	PRIMARY KEY(id)
+);
+
+-- user roles
+CREATE TABLE UserRole
+(
+	id		int NOT NULL AUTO_INCREMENT,
+	role	varchar(255) NOT NULL,
+	fk_user	int NOT NULL,
+	PRIMARY KEY(id),
+	UNIQUE KEY role_user (role, fk_user),
+	FOREIGN KEY(fk_user) REFERENCES User(id) ON DELETE CASCADE
+);
+
 -- player
 
 CREATE TABLE Player

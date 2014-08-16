@@ -17,7 +17,7 @@ pageContext.setAttribute("height", height);
 
 <jsp:directive.include file="terrain/style.jsp" />
 
-<div class="galaxyVoid">
+<div class="galaxyVoid noCoordinates">
 	<div class="buttons">
 		<button id="centerMap" class="mapButton"><spring:message code="center" /></button>
 		<button id="fullScreen" class="mapButton" style="display: none;"><spring:message code="fullscreen" /></button>
