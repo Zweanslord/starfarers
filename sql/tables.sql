@@ -5,6 +5,7 @@ CREATE TABLE User
 	username	VARCHAR(255) NOT NULL UNIQUE,
 	password	VARCHAR(255) NOT NULL,
 	enabled		bool NOT NULL DEFAULT TRUE,
+	fk_species	int,
 	PRIMARY KEY(id)
 );
 
@@ -75,4 +76,17 @@ CREATE TABLE Planet
    fk_star     int NOT NULL,
    PRIMARY KEY(id),
    FOREIGN KEY(fk_star) REFERENCES Star(id) ON DELETE CASCADE
+);
+
+-- species
+
+CREATE TABLE Species
+(
+	id					int NOT NULL AUTO_INCREMENT,
+	name				varchar(255) NOT NULL,
+	technologyType		varchar(255),
+	submissionStatus 	varchar(255),
+	fk_user				int NOT NULL,
+	PRIMARY KEY(id),
+	FOREIGN KEY(fk_user) REFERENCES User(id) ON DELETE CASCADE
 );

@@ -3,7 +3,6 @@ package com.starfarers.domain.map;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -21,7 +20,6 @@ public class Galaxy extends Common {
 	@NotNull
 	@Min(1)
 	@Max(30)
-	@Column
 	private Integer radius;
 
 	// TODO add validation: unique coordinates, within radius size, expected nr of sectors based on radius
