@@ -3,7 +3,9 @@ Starfarers
 
 Setting up a web application for the Starfarers strategy roleplaying game.
 
-Starfarers latest roleplaying game: http://www.myth-weavers.com/forumdisplay.php?f=28138
+Starfarers last roleplaying game: http://www.myth-weavers.com/forumdisplay.php?f=28138
+
+Webapplication: http://webapp-starfarers.rhcloud.com/
 
 Technologies used:
 - Java 7
@@ -16,7 +18,7 @@ Technologies used:
 - CSS
 
 Tools used (to be installed):
- - Spring Tool Suite, an Eclipse workspace, includes server (Tomcat-based) to run web application
+ - Spring Tool Suite, an Eclipse workspace, includes server (Tomcat-based) to run web application: https://spring.io/tools
  - Toad Extension for Eclipse in Spring Tool Suite for database connection
  - XAMPP with its MySQL Database
  - Maven for dependency management
